@@ -3,10 +3,15 @@
 
 from django.views.generic import View
 
-from blog.mixins.json_response import JSONResponseMixin
+from blog.mixins.json_response import JSONResponseMixin, RenderMixin
 
-class TestView(JSONResponseMixin, View):
+# class TestJsonView(JSONResponseMixin, View):
+
+#     def get(self, request):
+#         print 'xxx'
+#         return self.render_to_response("123321123321")
+
+class TestView(RenderMixin, View):
 
     def get(self, request):
-        print 'xxx'
-        return self.render_to_response("123321123321")
+        return self.render_to_response('__base__.html')

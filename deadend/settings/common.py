@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # Import sys (to adjust Python path)
 import sys
 # Import some utility functions
