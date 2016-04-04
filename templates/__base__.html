@@ -12,7 +12,8 @@
     <link rel="shortcut icon" href="{% static 'img/share/favicon.ico' %}" type="image/x-icon" />
 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/share/semantic.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/share/share.css' %}">
     {% block css %}{% endblock %}
   </head>
 
@@ -27,14 +28,8 @@
     {% include 'include/__inc_foot__.html' %}
 
     <!-- js -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/semantic.min.js' %}"></script>
+    <script src="{% static 'js/share/jquery.min.js' %}"></script>
+    <script src="{% static 'js/share/semantic.min.js' %}"></script>
     {% block js %}{% endblock %}
-    <script>
-        // $('a.item').click(function(){
-        //     $('a.item').removeClass('active');
-        //     $(this).addClass('active');
-        // });
-    </script>
   </body>
 </html>

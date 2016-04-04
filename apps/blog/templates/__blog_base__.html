@@ -2,46 +2,50 @@
 
 {% load staticfiles %}
 
+
 {% block ttl %}blog{% endblock %}
 
-{% block css %}{% block subcss %}{% endblock %}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog/base.css' %}">
+{% block subcss %}{% endblock %}
+{% endblock %}
+
 
 {% block body %}
 <div class="ui grid">
   <div class ="row">
     <!-- 左侧 -->
-    <div class="twelve wide column">
-      <div id="context">
-        {% block leftbody %}{% endblock %}
-      </div>
+    <div class="eleven wide column">
+      {% block leftbody %}{% endblock %}
     </div>
 
     <!-- 分隔线 -->
     {# <div class="ui vertical divider"><i class="terminal icon"></i></div> #}
 
     <!-- 右侧 -->
-    <div class="four wide column" style="min-height: 300px;">
+    <div class="five wide column" style="min-height: 300px;">
       <!-- 分类目录 -->
       <div class="ui raised segment">
-        <a class="ui large red ribbon label"><i class="list layout icon"></i> 分类</a>
+        <a class="ui red ribbon label"><i class="list layout icon"></i> 分类</a>
         <span></span>
-        <div class="ui divided middle aligned animated  list">
+        <div class="ui divided middle aligned animated list">
           <div class="item">
-            <i class="big red book middle aligned icon"></i>
+            <i class="large red book middle aligned icon"></i>
             <div class="content">
               <a class="header">编程语言</a>
               <div class="description">Total: 10</div>
             </div>
           </div>
           <div class="item">
-            <i class="big red book middle aligned icon"></i>
+            <i class="large red book middle aligned icon"></i>
             <div class="content">
               <a class="header">Linux</a>
               <div class="description">Total: 20</div>
             </div>
           </div>
           <div class="item">
-            <i class="big red book middle aligned icon"></i>
+            <i class="large red book middle aligned icon"></i>
             <div class="content">
               <a class="header">Hadoop生态圈</a>
               <div class="description">Total: 0</div>
@@ -81,7 +85,7 @@
 
       <!-- 标签 -->
       <div class="ui raised segment">
-        <a class="ui large teal ribbon label"><i class="tag icon"></i> 标签</a>
+        <a class="ui teal ribbon label"><i class="tag icon"></i> 标签</a>
         <div class="ui list">
           <a class="ui small red label" style="margin-bottom: 4px;">Python 22</a>
           <a class="ui big olive label" style="margin-bottom: 4px;">Java 22</a>
@@ -97,7 +101,7 @@
       
       <!-- 文件归档 -->
       <div class="ui raised segment">
-        <a class="ui large yellow ribbon label"><i class="list layout icon"></i> 归档</a>
+        <a class="ui yellow ribbon label"><i class="list layout icon"></i> 归档</a>
         <span></span>
         <div class="ui divided middle aligned animated list">
           <div class="item">
@@ -123,11 +127,11 @@
 
       <!-- 友情链接 -->
       <div class="ui raised segment">
-        <a class="ui large green ribbon label"><i class="linkify icon"></i> 友情链接</a>
+        <a class="ui green ribbon label"><i class="linkify icon"></i> 友情链接</a>
         <span></span>
         <div class="ui divided middle aligned animated list">
           <div class="item">
-            <i class="large green pointing right middle aligned icon"></i>
+            <i class="large green thumbs outline up middle aligned icon"></i>
             <div class="content">
               <a class="header">哈哈哈</a>
             </div>
