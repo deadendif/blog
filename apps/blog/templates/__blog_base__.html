@@ -1,0 +1,144 @@
+{% extends '__base__.html' %}
+
+{% load staticfiles %}
+
+{% block ttl %}blog{% endblock %}
+
+{% block css %}{% block subcss %}{% endblock %}{% endblock %}
+
+{% block body %}
+<div class="ui grid">
+  <div class ="row">
+    <!-- 左侧 -->
+    <div class="twelve wide column">
+      <div id="context">
+        {% block leftbody %}{% endblock %}
+      </div>
+    </div>
+
+    <!-- 分隔线 -->
+    {# <div class="ui vertical divider"><i class="terminal icon"></i></div> #}
+
+    <!-- 右侧 -->
+    <div class="four wide column" style="min-height: 300px;">
+      <!-- 分类目录 -->
+      <div class="ui raised segment">
+        <a class="ui large red ribbon label"><i class="list layout icon"></i> 分类</a>
+        <span></span>
+        <div class="ui divided middle aligned animated  list">
+          <div class="item">
+            <i class="big red book middle aligned icon"></i>
+            <div class="content">
+              <a class="header">编程语言</a>
+              <div class="description">Total: 10</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="big red book middle aligned icon"></i>
+            <div class="content">
+              <a class="header">Linux</a>
+              <div class="description">Total: 20</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="big red book middle aligned icon"></i>
+            <div class="content">
+              <a class="header">Hadoop生态圈</a>
+              <div class="description">Total: 0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      {% comment %}
+      <div class="ui segment">
+        <div class="ui large top attached green label">分类目录</div>
+        <div class="ui relaxed divided list">
+            <div class="item">
+              <i class="large teal write square middle aligned icon"></i>
+              <div class="content">
+                <a class="header">编程语言</a>
+                <div class="description">Total: 10</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large teal write square middle aligned icon"></i>
+              <div class="content">
+                <a class="header">Linux</a>
+                <div class="description">Total: 20</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="large teal write square middle aligned icon"></i>
+              <div class="content">
+                <a class="header">Hadoop生态圈</a>
+                <div class="description">Total: 0</div>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endcomment %}
+
+      <!-- 标签 -->
+      <div class="ui raised segment">
+        <a class="ui large teal ribbon label"><i class="tag icon"></i> 标签</a>
+        <div class="ui list">
+          <a class="ui small red label" style="margin-bottom: 4px;">Python 22</a>
+          <a class="ui big olive label" style="margin-bottom: 4px;">Java 22</a>
+          <a class="ui tiny purple label" style="margin-bottom: 4px;">Linux 2</a>
+          <a class="ui yellow label" style="margin-bottom: 4px;">Celery 2</a>
+          <a class="ui olive label" style="margin-bottom: 4px;">C++ 2</a>
+          <a class="ui large green label" style="margin-bottom: 4px;">Leetcode 2</a>
+          <a class="ui tiny red label" style="margin-bottom: 4px;">Javascript 2</a>
+          <a class="ui mini black label" style="margin-bottom: 4px;">Kafka 2</a>
+          <a class="ui pink label" style="margin-bottom: 4px;">Nginx 2</a>
+        </div>
+      </div>
+      
+      <!-- 文件归档 -->
+      <div class="ui raised segment">
+        <a class="ui large yellow ribbon label"><i class="list layout icon"></i> 归档</a>
+        <span></span>
+        <div class="ui divided middle aligned animated list">
+          <div class="item">
+            <i class="large yellow calendar middle aligned icon"></i>
+            <div class="content">
+              <a class="header">2016年4月</a>
+            </div>
+          </div>
+          <div class="item">
+            <i class="large yellow calendar middle aligned icon"></i>
+            <div class="content">
+              <a class="header">2016年3月</a>
+            </div>
+          </div>
+          <div class="item">
+            <i class="large yellow calendar middle aligned icon"></i>
+            <div class="content">
+              <a class="header">2016年2月</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 友情链接 -->
+      <div class="ui raised segment">
+        <a class="ui large green ribbon label"><i class="linkify icon"></i> 友情链接</a>
+        <span></span>
+        <div class="ui divided middle aligned animated list">
+          <div class="item">
+            <i class="large green pointing right middle aligned icon"></i>
+            <div class="content">
+              <a class="header">哈哈哈</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block js %}{% block subjs %}{% endblock %}{% endblock %}

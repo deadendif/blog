@@ -18,20 +18,23 @@
 
   <body>
     <!-- 导航栏 -->
-    {# {% include 'include/__nav__.html' %} #}
+    {% include 'include/__inc_nav__.html' %}
 
     <!-- 实体 -->
-    {# {% block body %}{% endblock %} #}
+    <div class="ui container">{% block body %}{% endblock %}</div>
 
     <!-- 底栏 -->
-    {# {% include 'include/__footer__.html' %} #}
-
-    <button class="ui primary button">Save </button>
-    <button class="ui button">Discard </button>
+    {% include 'include/__inc_foot__.html' %}
 
     <!-- js -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/semantic.min.js' %}"></script>
     {% block js %}{% endblock %}
+    <script>
+        // $('a.item').click(function(){
+        //     $('a.item').removeClass('active');
+        //     $(this).addClass('active');
+        // });
+    </script>
   </body>
 </html>

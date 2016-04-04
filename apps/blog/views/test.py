@@ -14,4 +14,4 @@ from blog.mixins.json_response import JSONResponseMixin, RenderMixin
 class TestView(RenderMixin, View):
 
     def get(self, request):
-        return self.render_to_response('__base__.html')
+        return self.render_to_response('blog/index.html')
