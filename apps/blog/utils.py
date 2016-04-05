@@ -13,5 +13,5 @@ def entries_published(queryset):
     now = timezone.now()
     return queryset.filter(
         Q(start_publish__lte=now) | Q(start_publish=None),
-        Q(end_publish__gt=now | Q(end_publish=None)),
+        Q(end_publish__gt=now) | Q(end_publish=None),
         status=PUBLISHED)

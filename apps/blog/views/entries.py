@@ -3,7 +3,7 @@
 
 from django.views.generic.detail import DetailView
 
-from blog.mixins.entry_visible import EntryVisibleMixin
+from mixins.entry_visible import EntryVisibleMixin
 
 
 class EntryDetail(EntryVisibleMixin, EntryProtectionMixin, DetailView):

@@ -188,7 +188,7 @@ class Entry(models.Model):
         super(self.__class__, self).save(*args, **kwargs)
 
     def __str__(self):
-        return '%s: %s' % (self.title, STATUS[self.status])
+        return '%s: %s' % (self.title, self.STATUS[self.status])
 
     class Meta:
         ordering = ['-create_time']

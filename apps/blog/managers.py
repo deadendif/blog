@@ -3,6 +3,7 @@
 
 from django.db import models
 from django.db.models import Q
+from django.utils import timezone
 
 from settings import DRAFT, HIDDEN, PUBLISHED
 from utils import entries_published

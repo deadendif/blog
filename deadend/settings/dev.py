@@ -37,3 +37,11 @@ CUSTOM_APPS = [
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
+
+
+##################### OVERRIDE ######################
+USE_TZ = False
+
+LANGUAGE_CODE = 'zh-hans'
+
+TIME_ZONE = 'Asia/Shanghai'
