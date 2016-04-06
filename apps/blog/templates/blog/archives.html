@@ -1,0 +1,56 @@
+{% extends '__blog_base__.html' %}
+
+{% load staticfiles %}
+
+
+{% block ttl %}测blog{% endblock %}
+
+
+{% block subcss %}{% endblock %}
+
+
+{% block main %}
+<div class="row">
+  <div class="ui large breadcrumb">
+    <a class="section">Home</a>
+    <i class="right angle icon divider"></i>
+    <a class="section">Linux</a>
+    <i class="right angle icon divider"></i>
+    <div class="active section">MySQL</div>
+  </div>
+</div>
+
+<div class="row" style="margin-top:12px;">
+  <div class="ui teal small labels">
+    <a class="ui label">Fun</a>
+    <a class="ui label">Happy</a>
+    <a class="ui label">Young</a>
+    <a class="ui label">Creativity</a>
+  </div>
+  <div class="ui divider"></div>
+</div>
+
+{% for entry in entry_list %}
+<article>
+  <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
+  <p class="article-meta">发表于 {{ entry.create_time |date:"Y-m-d H:i" }}</p>
+  <p>{{ entry.excerpt }}</p>
+  <p><a>继续阅读 <i class="angle double right icon"></i></a></p>
+</article>
+{% if not forloop.last %}
+<div class="ui divider"></div>
+{% endif %}
+{% endfor %}
+
+<div class="ui center aligned segment" style="border:none;box-shadow:none">
+  <div class="ui brown inverted pagination menu">
+  {% for page in page_obj.paginator.page_range %}
+    <a href="{% url 'blog:entry_archives:index_paginated' page %}" class="{% if page == page_obj.number %}active{% endif %} item">{{ page }}</a>
+  {% endfor %}
+  </div>
+</div>
+  
+{% endblock %}
+
+
+{% block subjs %}{% endblock %}

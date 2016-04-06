@@ -1,0 +1,20 @@
+.full-screen {
+    padding-top: 5px;
+    float: right;
+}
+
+.breadcrumb-divider {
+    padding-bottom: 12px;
+}
+
+.entry-header .ui.header {
+    font-size: 24px;
+    line-height: 30px;
+    padding-top: 4px;
+}
+
+
+
+.entry-header .tag.label {
+    margin-bottom: 16px;
+}

@@ -61,8 +61,8 @@ class Entry(models.Model):
     author = models.ForeignKey(
             Author, related_name='entries', null=True, on_delete=models.SET_NULL,  # ???
             help_text='Author of the entry.')
-    categories = models.ManyToManyField(
-            Category, related_name='entries', blank=True,
+    category = models.ForeignKey(
+            Category, related_name='entries', blank=False, null=True,
             help_text='Categories that contain this entry.')
     tags = TagField('tags')
     login_required = models.BooleanField('login required',
@@ -150,7 +150,7 @@ class Entry(models.Model):
         Return the entry's URL
         """
         ctime = self.create_time
-        return ('blog:entry_detail', (), {
+        return ('blog:entry_detail:detail', (), {
             'year': self.create_time.strftime('%Y'),
             'month': self.create_time.strftime('%m'),
             'day': self.create_time.strftime('%d'),

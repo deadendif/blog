@@ -3,25 +3,23 @@
 
 from django.views.generic.base import TemplateResponseMixin
 
+from entries import EntryTimeConfMixin
 from callable_queryset import CallableQuerysetMixin
 from blog.settings import PAGINATION, ALLOW_EMPTY
 from blog.models import Entry
 
-class ArchiveMixin(object):
+class ArchiveConfMixin(EntryTimeConfMixin):
     """
-    Mixin centralizing the configuration of the archives views.
+    Mixin centralizing the configuration.
     """
     paginate_by = PAGINATION
     allow_empty = ALLOW_EMPTY
-    date_field = 'create_time'
-    template_name = 'blog/test.html'
+    template_name = 'blog/archives.html'
     context_object_name = 'entry_list'
     make_object_list = True
-    month_format = '%m'
-    week_format = '%W'
 
 
-class EntryArchiveMixin(ArchiveMixin, CallableQuerysetMixin, TemplateResponseMixin):
+class EntryArchiveMixin(ArchiveConfMixin, CallableQuerysetMixin, TemplateResponseMixin):
     """
     Mixin of all archives.
     """

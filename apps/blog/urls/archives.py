@@ -6,20 +6,23 @@ from blog.views.test import TestView
 from blog.views.archives import EntryIndex, EntryYear, EntryMonth
 
 urlpatterns = [
-    url(r'^$', TestView.as_view(), name='test_view'),
+    # url(r'^$', TestView.as_view(), name='test_view'),
 
-    url(r'^index/$', EntryIndex.as_view(), name='test_index'),
+    # Index archive
+    url(r'^$', EntryIndex.as_view(), name='index'),
     url(r'^page/(?P<page>\d+)/$',
         EntryIndex.as_view(),
-        name='entry_archive_index_paginated'),
+        name='index_paginated'),
 
-    url(r'^(?P<year>\d{4})/$', EntryYear.as_view(), name='test_year'),
+    # Year archives
+    url(r'^(?P<year>\d{4})/$', EntryYear.as_view(), name='year'),
     url(r'^(?P<year>\d{4})/page/(?P<page>\d+)/$',
         EntryYear.as_view(),
-        name='entry_archive_year_paginated'),
+        name='year_paginated'),
 
-    url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$', EntryMonth.as_view(), name='test_month'),
+    # Month archives
+    url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$', EntryMonth.as_view(), name='month'),
     url(r'^(?P<year>\d{4})/page/(?P<page>\d+)/$',
         EntryYear.as_view(),
-        name='entry_archive_year_paginated'),
+        name='month_paginated'),
 ]
