@@ -8,6 +8,10 @@ from os.path import abspath, basename, dirname, join, normpath
 
 # #########################################################
 
+# ##### ENCODING CONFIGURATION ############################
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 # ##### PATH CONFIGURATION ################################
 
 # Fetch Django's project directory
