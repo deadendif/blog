@@ -2,6 +2,11 @@
 
 {% load staticfiles %}
 
+{% block loads %}
+{% load categories tags %}
+{% block subloads %}{% endblock %}
+{% endblock %}
+
 
 {% block ttl %}blog{% endblock %}
 
@@ -17,6 +22,40 @@
   <div class ="row">
     <!-- 左侧 -->
     <div class="eleven wide column">
+      <div class="row">
+        <div class="ui large breadcrumb">
+          <a href="/blog/" class="section">Home</a>
+          {% for crumb in breadcrumbs %}
+          <i href="{{ crumb.url }}" class="right angle icon divider"></i>
+          {% if crumb.url %}
+          <a href="{{ crumb.url }}" class="section">{{ crumb.name }}</a>
+          {% else %}
+          <div class="active section">{{ crumb.name }}</div>
+          {% endif %}
+          {% endfor %}
+          {% comment %}
+          <i class="right angle icon divider"></i>
+          <a class="section">Linux</a>
+          <i class="right angle icon divider"></i>
+          <div class="active section">MySQL</div>
+          {% endcomment %}
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:12px;">
+        <div class="ui small labels">
+          {% for label in labels %}
+          <a href="{{ label.url }}" class="ui {{ label.name|color}} label">{{ label.name }}</a>
+          {% endfor %}
+          {% comment %}
+          <a class="ui label">Fun</a>
+          <a class="ui label">Happy</a>
+          <a class="ui label">Young</a>
+          <a class="ui label">Creativity</a>
+          {% endcomment %}
+        </div>
+        <div class="ui divider"></div>
+      </div>
       {% block main %}{% endblock %}
     </div>
 
@@ -28,30 +67,7 @@
       <!-- 分类目录 -->
       <div class="ui raised segment">
         <a class="ui red ribbon label"><i class="list layout icon"></i> 分类</a>
-        <span></span>
-        <div class="ui divided middle aligned animated list">
-          <div class="item">
-            <i class="large red book middle aligned icon"></i>
-            <div class="content">
-              <a class="header">编程语言</a>
-              <div class="description">Total: 10</div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large red book middle aligned icon"></i>
-            <div class="content">
-              <a class="header">Linux</a>
-              <div class="description">Total: 20</div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large red book middle aligned icon"></i>
-            <div class="content">
-              <a class="header">Hadoop生态圈</a>
-              <div class="description">Total: 0</div>
-            </div>
-          </div>
-        </div>
+        {% get_root_categories %}
       </div>
   
       {% comment %}
@@ -86,17 +102,7 @@
       <!-- 标签 -->
       <div class="ui raised segment">
         <a class="ui teal ribbon label"><i class="tag icon"></i> 标签</a>
-        <div class="ui list">
-          <a class="ui small red label" style="margin-bottom: 4px;">Python 22</a>
-          <a class="ui big olive label" style="margin-bottom: 4px;">Java 22</a>
-          <a class="ui tiny purple label" style="margin-bottom: 4px;">Linux 2</a>
-          <a class="ui yellow label" style="margin-bottom: 4px;">Celery 2</a>
-          <a class="ui olive label" style="margin-bottom: 4px;">C++ 2</a>
-          <a class="ui large green label" style="margin-bottom: 4px;">Leetcode 2</a>
-          <a class="ui tiny red label" style="margin-bottom: 4px;">Javascript 2</a>
-          <a class="ui mini black label" style="margin-bottom: 4px;">Kafka 2</a>
-          <a class="ui pink label" style="margin-bottom: 4px;">Nginx 2</a>
-        </div>
+        {% get_tags %}
       </div>
       
       <!-- 文件归档 -->

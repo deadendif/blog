@@ -10,25 +10,41 @@ from django.views.generic.base import TemplateResponseMixin
 
 from mixins.archives import EntryArchiveMixin
 from mixins.json_response import RenderMixin
-from blog.models import Entry
+from blog.models import Entry, Category
+from blog.breadcrumbs import Link
 
 
 class EntryIndex(EntryArchiveMixin, BaseArchiveIndexView):
     """
     Mixin index.
     """
-    pass
+
+    @property
+    def private_context_data(self):
+        """
+        Private context data: breadcrumbs, direct subdirectories.
+        """
+        categories = Category.objects.filter(parent=None)
+        labels = [Link(cg.title, cg.get_absolute_url()) for cg in categories]
+        return {'breadcrumbs': [Link('Index')], 'labels': labels}
 
 
 class EntryYear(EntryArchiveMixin, BaseYearArchiveView):
     """
     Mixin year.
     """
-    pass
+
+    @property
+    def private_context_data(self):
+        """
+        Private context data: breadcrumbs, direct subdirectories.
+        """
+        categories = Category.objects.filter(parent=None)
+        labels = [Link(cg.title, cg.get_absolute_url()) for cg in categories]
+        return {'breadcrumbs': [Link(self.kwargs['year'])], 'labels': labels}
 
 
 class EntryMonth(EntryArchiveMixin, BaseMonthArchiveView):
     """
     Mixin month.
     """
- 

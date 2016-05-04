@@ -23,6 +23,6 @@ urlpatterns = [
     # Month archives
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$', EntryMonth.as_view(), name='month'),
     url(r'^(?P<year>\d{4})/page/(?P<page>\d+)/$',
-        EntryYear.as_view(),
+        EntryMonth.as_view(),
         name='month_paginated'),
 ]

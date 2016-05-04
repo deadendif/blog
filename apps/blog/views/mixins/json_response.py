@@ -4,7 +4,7 @@
 import json
 
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 
 class JSONResponseMixin(object):
@@ -26,5 +26,5 @@ class RenderMixin(object):
     Mixin used to render a HTML response.
     """
 
-    def render_to_response(self, *args, **kwargs):
-        return render_to_response(*args, **kwargs)
+    def render(self, request,  *args, **kwargs):
+        return render(request, *args, **kwargs)

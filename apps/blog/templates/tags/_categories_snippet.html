@@ -1,0 +1,11 @@
+<div class="ui divided middle aligned animated list">
+  {% for ctgy in t_categories %}
+  <div class="item">
+    <i class="large red book middle aligned icon"></i>
+    <div class="content">
+      <a href="{{ ctgy.url }}" class="header">{{ ctgy.title }}</a>
+      <div class="description">Total: {{ ctgy.count }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

@@ -23,7 +23,7 @@ class Category(MPTTModel):
             blank=True,
             help_text='Describe the category.')
     parent = TreeForeignKey(
-            'self', related_name='children', null=True, blank=True,
+            'self', related_name='children', null=True, blank=True, db_index=True,
             help_text='Parent category.')
 
     objects = TreeManager()
@@ -46,7 +46,7 @@ class Category(MPTTModel):
         """
         Return the category's URL.
         """
-        return ('blog:category_detail', (self.tree_path, ))
+        return ('blog:categories:detail', (self.tree_path, ))
 
     def __str__(self):
         return '%s: %s' % (self.title, self.tree_path)

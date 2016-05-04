@@ -24,3 +24,12 @@ class EntryArchiveMixin(ArchiveConfMixin, CallableQuerysetMixin, TemplateRespons
     Mixin of all archives.
     """
     queryset = Entry.published.all
+
+    def get_context_data(self, **kwargs):
+        """
+        [Override] Update context data when rendering.
+        """
+        context = super(EntryArchiveMixin, self).get_context_data(**kwargs)
+        # context.update(self.public_context_data)
+        context.update(getattr(self, 'private_context_data', {}))
+        return context
