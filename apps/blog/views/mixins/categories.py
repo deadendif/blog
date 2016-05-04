@@ -4,7 +4,6 @@
 from django.shortcuts import get_object_or_404
 
 from archives import ArchiveConfMixin
-from blog.settings import PAGINATION
 from blog.models import Category, Entry
 
 def get_category_or_404(path):
@@ -17,7 +16,7 @@ def get_category_or_404(path):
 
 class CategoryDetailMixin(ArchiveConfMixin):
     """
-    Mixin of categories.
+    Mixin of categoriy detail.
     """
 
     def get_queryset(self):

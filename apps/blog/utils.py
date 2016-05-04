@@ -3,6 +3,7 @@
 
 from django.db.models import Q
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 from tagging.models import Tag
 
 from settings import PUBLISHED
@@ -22,7 +23,7 @@ def entry_tags(entry):
     """
     Return the tags of the entry.
     """
-    return [Link(tag.name, '/blog/') for tag in Tag.objects.get_for_object(entry)]
+    return [Link(tag.name, reverse('blog:tags:detail', args=[tag.name])) for tag in Tag.objects.get_for_object(entry)]
 
 
 def category_ancestors(category, ascending=False, include_self=True, disable_last_url=True):

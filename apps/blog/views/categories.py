@@ -4,7 +4,6 @@
 from django.views.generic.base import TemplateResponseMixin
 from django.views.generic.list import BaseListView
 
-from blog.breadcrumbs import Link
 from blog.utils import category_ancestors, category_children
 from mixins.categories import CategoryDetailMixin
 

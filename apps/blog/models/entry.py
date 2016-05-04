@@ -6,6 +6,7 @@ import markdown as md
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
+from django.utils.text import Truncator
 
 from tagging.fields import TagField
 from tagging.utils import parse_tag_input

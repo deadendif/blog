@@ -16,7 +16,7 @@ UPLOAD_IMAGE_TO = '/IAMGES/'
 SPLITTERS = ['<!-- more -->', ]
 
 """ Archive pagination """
-PAGINATION = 10
+PAGINATION = 3
 
 """ Archive allow empty or not """
 ALLOW_EMPTY = True

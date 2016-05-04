@@ -3,8 +3,10 @@
 
 import hashlib
 from django import template
+from django.core.urlresolvers import reverse
 from tagging.models import Tag
 
+from blog.models import Entry
 register = template.Library()
 
 
@@ -16,9 +18,9 @@ def get_tags():
     from random import randint
     t_tags = [{
             'title': t.name,
-            'url': '',
-            'count': randint(0, 50)
-        } for t in Tag.objects.all()]
+            'url': reverse('blog:tags:detail', args=[t.name]),
+            'count': t.count
+        } for t in Tag.objects.usage_for_model(Entry, counts=True)]
     return {'t_tags': t_tags}
 
 
@@ -27,7 +29,7 @@ def size(count):
     """
     Return size according to 'count'.
     """
-    BASE = 10
+    BASE = 1
     SIZES = ['mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive']
     index = count / BASE if (count / BASE <= len(SIZES) - 1) else (len(SIZES) - 1)
     return SIZES[index]
