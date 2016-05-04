@@ -12,6 +12,9 @@ class Link(object):
         self.name = name
         self.url = url
 
+    def disable_url(self):
+        self.url = None
+
     def __str__(self):
         return '%s: %s' % (self.name, self.url)
 

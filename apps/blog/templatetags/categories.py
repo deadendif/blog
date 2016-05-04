@@ -14,7 +14,4 @@ def get_root_categories():
             'url': cg.get_absolute_url(),
             'count': 10
         } for cg in Category.objects.filter(parent=None)]
-    if t_categories:
-        t_categories[-1]['url'] = None
-    print t_categories
     return {'t_categories': t_categories}

@@ -12,29 +12,6 @@
 
 
 {% block main %}
-<div class="row">
-  <div class="ui large breadcrumb">
-    <a class="section">Home</a>
-    <i class="right angle icon divider"></i>
-    <a class="section">Linux</a>
-    <i class="right angle icon divider"></i>
-    <div class="active section">Linux网络编程{{ entry.category.tree_path }}</div>
-  </div>
-  <span class="ui slider checkbox full-screen">
-    <input type="checkbox" name="newsletter">
-    <label></label>
-  </span>
-</div>
-
-<div class="row" style="margin-top:12px;">
-  <div class="ui brown small labels">
-    {% for tag in entry.tags_list %}
-        <a class="ui label">{{ tag }}</a>
-    {% endfor %}
-  </div>
-  <div class="ui divider breadcrumb-divider"></div>
-</div>
-
 <article>
   <div class="entry-header">
     <h2 class="ui header">{{ entry.title }}</h2>

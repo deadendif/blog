@@ -4,6 +4,8 @@
 from django.views.generic.dates import BaseDateDetailView
 
 from mixins.entries import EntryDetailMixin
+from blog.utils import category_ancestors, entry_tags
+from blog.breadcrumbs import Link
 
 
 class EntryDetail(EntryDetailMixin, BaseDateDetailView):
@@ -15,6 +17,9 @@ class EntryDetail(EntryDetailMixin, BaseDateDetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EntryDetail, self).get_context_data(**kwargs)
+        breadcrumbs = category_ancestors(self.object.category, disable_last_url=False)
+        breadcrumbs.append(Link(self.object.title))
+        context.update({'breadcrumbs': breadcrumbs, 'labels': entry_tags(self.object)})
         return context
 
     # def get(self, request, *args, **kwargs):
