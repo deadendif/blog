@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import markdown as md
-
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
@@ -16,6 +14,7 @@ from category import Category
 from blog.settings import DRAFT, HIDDEN, PUBLISHED
 from blog.settings import ENTRY_DETAIL_TEMPLATES, SPLITTERS
 from blog.utils import entries_published
+from blog.utils import markdown
 from blog.managers import EntryPublishedManager
 
 
@@ -151,7 +150,7 @@ class Entry(models.Model):
         Return the entry's URL
         """
         ctime = self.create_time
-        return ('blog:entry_detail:detail', (), {
+        return ('blog:entries:detail', (), {
             'year': self.create_time.strftime('%Y'),
             'month': self.create_time.strftime('%m'),
             'day': self.create_time.strftime('%d'),
@@ -163,7 +162,7 @@ class Entry(models.Model):
         """
         Return html content
         """
-        return md.markdown('content', extensions=['markdown.extensions.tables'])
+        return markdown(self.content)
 
     @property
     def html_preview(self):

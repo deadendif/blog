@@ -1,3 +1,10 @@
+body {
+    /*background-color: #faefcc;*/
+    background-image:url('/static/img/share/background/greyzz.png');
+    /*Download from http://subtlepatterns.com/*/
+}
+
 .lightgray {
     color: red;
 }
+

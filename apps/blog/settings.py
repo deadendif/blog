@@ -20,3 +20,13 @@ PAGINATION = 3
 
 """ Archive allow empty or not """
 ALLOW_EMPTY = True
+
+""" Markdown extensions """
+MARKDOWN_EXTENSIONS = ['markdown.extensions.tables', ]
+
+""" Number of recent archives """
+RECENT_ARCHIVES_NUM = 4
+
+""" Hash value """
+HASH_TAG_COLOR_START = 3
+HASH_TAG_COLOR_END = 9

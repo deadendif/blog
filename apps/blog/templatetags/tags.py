@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from tagging.models import Tag
 
 from blog.models import Entry
+from blog.settings import HASH_TAG_COLOR_START, HASH_TAG_COLOR_END
 register = template.Library()
 
 
@@ -43,5 +44,5 @@ def color(title):
     COLORS = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black']
     md5 = hashlib.md5()
     md5.update(str(title))
-    index = int(md5.hexdigest()[3:6], 16) % len(COLORS)
+    index = int(md5.hexdigest()[HASH_TAG_COLOR_START:HASH_TAG_COLOR_END], 16) % len(COLORS)
     return COLORS[index]

@@ -8,22 +8,22 @@
 
 {% block subcss %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog/entry.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/share/markdown.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/share/styles/solarized-light.css' %}">
 {% endblock %}
 
 
 {% block main %}
-<article>
+<article class="markdown-body">
   <div class="entry-header">
     <h2 class="ui header">{{ entry.title }}</h2>
-    {{ entry.category.tree_path }}
-    
-    <div>
-      {{ entry.content }}
-    </div>
+    <div>{{ entry.html_content|safe }}</div>
   </div>
-
 </article>
 {% endblock %}
 
 
-{% block subjs %}{% endblock %}
+{% block subjs %}
+<script src="{% static 'js/share/highlight.pack.js' %}"></script>
+<script >hljs.initHighlightingOnLoad();</script>
+{% endblock %}

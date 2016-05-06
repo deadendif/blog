@@ -1,0 +1,92 @@
+.markdown-body {
+    color: #2C3E50;
+    font-size: 15px;
+}
+
+h1 {
+    font-size: 1.6em;
+}
+
+h2 {
+    font-size: 1.45em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.15em;
+}
+
+.markdown-body em {
+    color: #d05;
+}
+
+.markdown-body blockquote {
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.markdown-body blockquote {
+    margin-top: 0;
+    /*margin-bottom: 16px;*/
+    margin-bottom: 0px;
+}
+
+.markdown-body blockquote {
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+    margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-body blockquote {
+    border-left-width: 6px;
+    border-left-color: #bacee2;
+    background-color: rgba(186, 206, 226, 0.1);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 15px 20px;
+}
+
+.markdown-body code {
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    white-space: normal;
+    font-family: "Source Code Pro",monospace;
+    font-size: .9em;
+    padding: 2px 4px;
+    outline: none !important;
+}
+
+.markdown-body pre > code {
+    padding: 8px 12px;
+    margin: 0px;
+    font-size: 90%;
+    word-break: normal;
+    white-space: pre;
+    border: 0;
+    color: #657b83;
+    border-radius: 6px;
+    background-color: #fdf6e3;
+    line-height: 1.5em;
+}
+
+.markdown-body ul ul {
+    padding-left: 16px;
+}
+
+.markdown-body ul ul ul{
+    padding-left: 16px;
+}
+

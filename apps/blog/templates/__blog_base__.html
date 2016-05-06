@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block loads %}
-{% load categories tags %}
+{% load categories tags archives %}
 {% block subloads %}{% endblock %}
 {% endblock %}
 
@@ -33,13 +33,15 @@
           <div class="active section">{{ crumb.name }}</div>
           {% endif %}
           {% endfor %}
-          {% comment %}
-          <i class="right angle icon divider"></i>
-          <a class="section">Linux</a>
-          <i class="right angle icon divider"></i>
-          <div class="active section">MySQL</div>
-          {% endcomment %}
         </div>
+
+        <!-- 博文全屏按钮 -->
+        {% if entry %}
+        <span class="ui slider checkbox full-screen">
+          <input type="checkbox" name="newsletter">
+          <label></label>
+        </span>
+        {% endif %}
       </div>
 
       <div class="row" style="margin-top:12px;">
@@ -47,12 +49,6 @@
           {% for label in labels %}
           <a href="{{ label.url }}" class="ui {{ label.name|color}} label">{{ label.name }}</a>
           {% endfor %}
-          {% comment %}
-          <a class="ui label">Fun</a>
-          <a class="ui label">Happy</a>
-          <a class="ui label">Young</a>
-          <a class="ui label">Creativity</a>
-          {% endcomment %}
         </div>
         <div class="ui divider"></div>
       </div>
@@ -65,76 +61,26 @@
     <!-- 右侧 -->
     <div class="five wide column" style="min-height: 300px;">
       <!-- 分类目录 -->
-      <div class="ui raised segment">
+      <div class="ui raised segment" style="background-color:transparent">
         <a class="ui red ribbon label"><i class="list layout icon"></i> 分类</a>
         {% get_root_categories %}
       </div>
-  
-      {% comment %}
-      <div class="ui segment">
-        <div class="ui large top attached green label">分类目录</div>
-        <div class="ui relaxed divided list">
-            <div class="item">
-              <i class="large teal write square middle aligned icon"></i>
-              <div class="content">
-                <a class="header">编程语言</a>
-                <div class="description">Total: 10</div>
-              </div>
-            </div>
-            <div class="item">
-              <i class="large teal write square middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Linux</a>
-                <div class="description">Total: 20</div>
-              </div>
-            </div>
-            <div class="item">
-              <i class="large teal write square middle aligned icon"></i>
-              <div class="content">
-                <a class="header">Hadoop生态圈</a>
-                <div class="description">Total: 0</div>
-              </div>
-            </div>
-          </div>
-      </div>
-      {% endcomment %}
 
       <!-- 标签 -->
-      <div class="ui raised segment">
+      <div class="ui raised segment" style="background-color:transparent">
         <a class="ui teal ribbon label"><i class="tag icon"></i> 标签</a>
         {% get_tags %}
       </div>
       
       <!-- 文件归档 -->
-      <div class="ui raised segment">
+      <div class="ui raised segment" style="background-color:transparent">
         <a class="ui yellow ribbon label"><i class="list layout icon"></i> 归档</a>
-        <span></span>
-        <div class="ui divided middle aligned animated list">
-          <div class="item">
-            <i class="large yellow calendar middle aligned icon"></i>
-            <div class="content">
-              <a class="header">2016年4月</a>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large yellow calendar middle aligned icon"></i>
-            <div class="content">
-              <a class="header">2016年3月</a>
-            </div>
-          </div>
-          <div class="item">
-            <i class="large yellow calendar middle aligned icon"></i>
-            <div class="content">
-              <a class="header">2016年2月</a>
-            </div>
-          </div>
-        </div>
+        {% get_recent_archives %}
       </div>
 
       <!-- 友情链接 -->
-      <div class="ui raised segment">
+      <div class="ui raised segment" style="background-color:transparent">
         <a class="ui green ribbon label"><i class="linkify icon"></i> 友情链接</a>
-        <span></span>
         <div class="ui divided middle aligned animated list">
           <div class="item">
             <i class="large green thumbs outline up middle aligned icon"></i>

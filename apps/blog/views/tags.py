@@ -18,4 +18,4 @@ class TagDetail(TagDetailMixin, BaseListView, TemplateResponseMixin):
         """
         Private context data: breadcrumbs.
         """
-        return {'breadcrumbs': [Link('Tag: %s' % self.tag.name)], 'labels': []}
+        return {'breadcrumbs': [Link('Tag : %s' % self.tag.name)], 'labels': []}
