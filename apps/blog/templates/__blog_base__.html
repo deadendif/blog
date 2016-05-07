@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block loads %}
-{% load categories tags archives %}
+{% load categories tags archives sites %}
 {% block subloads %}{% endblock %}
 {% endblock %}
 
@@ -21,7 +21,7 @@
 <div class="ui grid">
   <div class ="row">
     <!-- 左侧 -->
-    <div class="eleven wide column">
+    <div class="eleven wide column" id="body-left">
       <div class="row">
         <div class="ui large breadcrumb">
           <a href="/blog/" class="section">Home</a>
@@ -34,14 +34,8 @@
           {% endif %}
           {% endfor %}
         </div>
-
-        <!-- 博文全屏按钮 -->
-        {% if entry %}
-        <span class="ui slider checkbox full-screen">
-          <input type="checkbox" name="newsletter">
-          <label></label>
-        </span>
-        {% endif %}
+        
+        {% block fullscreen %}{% endblock %}
       </div>
 
       <div class="row" style="margin-top:12px;">
@@ -59,10 +53,10 @@
     {# <div class="ui vertical divider"><i class="terminal icon"></i></div> #}
 
     <!-- 右侧 -->
-    <div class="five wide column" style="min-height: 300px;">
+    <div class="five wide column" style="min-height: 300px;" id="body-right">
       <!-- 分类目录 -->
       <div class="ui raised segment" style="background-color:transparent">
-        <a class="ui red ribbon label"><i class="list layout icon"></i> 分类</a>
+        <a class="ui red ribbon label"><i class="list layout icon"></i> 目录</a>
         {% get_root_categories %}
       </div>
 
@@ -81,14 +75,7 @@
       <!-- 友情链接 -->
       <div class="ui raised segment" style="background-color:transparent">
         <a class="ui green ribbon label"><i class="linkify icon"></i> 友情链接</a>
-        <div class="ui divided middle aligned animated list">
-          <div class="item">
-            <i class="large green thumbs outline up middle aligned icon"></i>
-            <div class="content">
-              <a class="header">哈哈哈</a>
-            </div>
-          </div>
-        </div>
+        {% get_sites %}
       </div>
 
     </div>

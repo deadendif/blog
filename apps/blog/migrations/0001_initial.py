@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(help_text=b'Title of the entry.', max_length=255, verbose_name=b'title')),
                 ('slug', models.SlugField(help_text=b"Used to build the entry' URL.", max_length=255, verbose_name=b'slug')),
                 ('status', models.IntegerField(default=1, help_text=b'Status of the entry.', db_index=True, verbose_name=b'status', choices=[(1, b'draft'), (2, b'hidden'), (3, b'published')])),
-                ('create_time', models.DateTimeField(default=django.utils.timezone.now, help_text=b'Datetime when create the entry.', verbose_name=b'Create time', db_index=True)),
+                ('create_time', models.DateTimeField(default=django.utils.timezone.now, help_text=b'Datetime when creating the entry.', verbose_name=b'Create time', db_index=True)),
                 ('start_publish', models.DateTimeField(help_text=b'Datetime when starting publication', null=True, verbose_name=b'start publish', db_index=True, blank=True)),
                 ('end_publish', models.DateTimeField(help_text=b'Datetime when stopping publication', null=True, verbose_name=b'end publish', db_index=True, blank=True)),
                 ('last_update', models.DateTimeField(default=django.utils.timezone.now, help_text=b'Datetime when last update the entry.', verbose_name=b'last update time')),
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
                 ('password', models.CharField(help_text=b'Protects the entry with a password.', max_length=64, verbose_name=b'password', blank=True)),
                 ('detail_template', models.CharField(default=(b'xxx', b'111'), help_text=b'The detail tempate of the entry.', max_length=255, verbose_name=b'detail template', choices=[(b'xxx', b'111')])),
                 ('author', models.ForeignKey(related_name='entries', on_delete=django.db.models.deletion.SET_NULL, to='blog.Author', help_text=b'Author of the entry.', null=True)),
-                ('categories', models.ManyToManyField(help_text=b'Categories that contain this entry.', related_name='entries', to='blog.Category', blank=True)),
+                ('category', models.ForeignKey(related_name='entries', to='blog.Category', help_text=b'Categories that contain this entry.', null=True)),
             ],
             options={
                 'ordering': ['-create_time'],

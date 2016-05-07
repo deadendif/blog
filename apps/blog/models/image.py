@@ -12,6 +12,9 @@ from entry import Entry
 
 
 def upload_image_to(filename):
+    """
+    Return upload path.
+    """
     now = timezone.now()
     filename, extension = os.path.splitext(filename)
     path = os.path.join(UPLOAD_IMAGE_TO, now.strftime('%Y/%m/%d'), 
@@ -21,7 +24,7 @@ def upload_image_to(filename):
 
 class Image(models.Model):
     """
-    Image in entry
+    Image in entry.
     """
     image_caption = models.TextField('image caption',
             blank=True,

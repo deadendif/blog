@@ -1,0 +1,10 @@
+<div class="ui divided middle aligned animated list">
+  {% for site in t_sites %}
+  <div class="item">
+    <i class="large green thumbs outline up middle aligned icon"></i>
+    <div class="content">
+      <a href="{{ site.url }}" target="blank" class="header">{{ site.title }}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>

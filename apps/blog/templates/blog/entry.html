@@ -13,6 +13,17 @@
 {% endblock %}
 
 
+{% block fullscreen %}
+<!-- 博文全屏按钮 -->
+{% if entry %}
+<span class="ui slider checkbox full-screen">
+  <input type="checkbox" name="newsletter" id="fullscreen">
+  <label></label>
+</span>
+{% endif %}
+{% endblock %}
+
+
 {% block main %}
 <article class="markdown-body">
   <div class="entry-header">
@@ -25,5 +36,6 @@
 
 {% block subjs %}
 <script src="{% static 'js/share/highlight.pack.js' %}"></script>
-<script >hljs.initHighlightingOnLoad();</script>
+<script src="{% static 'js/blog/entry.js' %}"></script>
+<script ></script>
 {% endblock %}

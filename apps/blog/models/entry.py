@@ -39,7 +39,7 @@ class Entry(models.Model):
             help_text='Status of the entry.')
     create_time = models.DateTimeField('Create time',
             db_index=True, default=timezone.now,
-            help_text='Datetime when create the entry.')
+            help_text='Datetime when creating the entry.')
     start_publish = models.DateTimeField('start publish',
             db_index=True, blank=True, null=True,
             help_text='Datetime when starting publication')
