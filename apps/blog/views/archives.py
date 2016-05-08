@@ -9,11 +9,11 @@ from django.views.generic.dates import BaseDayArchiveView
 from django.views.generic.dates import BaseTodayArchiveView
 from django.core.urlresolvers import reverse
 
-from mixins.archives import EntryArchiveMixin
-from mixins.json_response import RenderMixin
-from blog.models import Entry, Category
-from blog.breadcrumbs import Link
-from blog.utils import valid_month
+from .mixins.archives import EntryArchiveMixin
+from .mixins.json_response import RenderMixin
+from ..models import Entry, Category
+from ..breadcrumbs import Link
+from ..utils import valid_month
 
 
 class EntryIndex(EntryArchiveMixin, BaseArchiveIndexView):

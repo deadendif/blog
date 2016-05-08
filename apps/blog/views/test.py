@@ -3,7 +3,7 @@
 
 from django.views.generic import View
 
-from mixins.json_response import JSONResponseMixin, RenderMixin
+from .mixins.json_response import JSONResponseMixin, RenderMixin
 
 # class TestJsonView(JSONResponseMixin, View):
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from models import Author, Category, Entry, Image, Site
+from .models import Author, Category, Entry, Image, Site
 
 admin.site.register(Author)
 admin.site.register(Category)

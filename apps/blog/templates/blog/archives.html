@@ -25,6 +25,19 @@
 {% endif %}
 {% endfor %}
 
+{% if not entry_list %}
+{% if error %}
+<div class="ui red message">
+  <div class="header">{{ error }}</div>
+</div>
+{% else %}
+<div class="ui yellow message">
+  <div class="header">没有搜索到相关文章。</div>
+</div>
+{% endif %}
+{% endif %}
+
+{% if is_paginated %}
 <div class="ui center aligned segment" style="border:none;box-shadow:none;background-color:transparent">
   <div class="ui brown inverted pagination menu">
   {% for page in page_obj.paginator.page_range %}
@@ -32,6 +45,7 @@
   {% endfor %}
   </div>
 </div>
+{% endif %}
   
 {% endblock %}
 

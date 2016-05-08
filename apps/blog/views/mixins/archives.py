@@ -3,10 +3,10 @@
 
 from django.views.generic.base import TemplateResponseMixin
 
-from entries import EntryTimeConfMixin
-from callable_queryset import CallableQuerysetMixin
-from blog.settings import PAGINATION, ALLOW_EMPTY
-from blog.models import Entry
+from .entries import EntryTimeConfMixin
+from .callable_queryset import CallableQuerysetMixin
+from ...settings import PAGINATION, ALLOW_EMPTY
+from ...models import Entry
 
 class ArchiveConfMixin(EntryTimeConfMixin):
     """

@@ -10,7 +10,7 @@ PUBLISHED = 3
 ENTRY_DETAIL_TEMPLATES = [('xxx', '111'), ]
 
 """ Upload path """
-UPLOAD_IMAGE_TO = '/IAMGES/'
+UPLOAD_IMAGE_TO = 'images/'
 
 """ Splitters of entries """
 SPLITTERS = ['<!-- more -->', ]
@@ -30,3 +30,9 @@ RECENT_ARCHIVES_NUM = 4
 """ Hash value """
 HASH_TAG_COLOR_START = 3
 HASH_TAG_COLOR_END = 9
+
+""" Min length of keyword for searching """
+MIN_KEYWORD_LENGTH = 3
+
+""" Entry search fields """
+SEARCH_FIELDS = ['title', 'content']

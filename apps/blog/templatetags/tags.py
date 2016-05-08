@@ -6,8 +6,9 @@ from django import template
 from django.core.urlresolvers import reverse
 from tagging.models import Tag
 
-from blog.models import Entry
-from blog.settings import HASH_TAG_COLOR_START, HASH_TAG_COLOR_END
+from ..models import Entry
+from ..settings import HASH_TAG_COLOR_START, HASH_TAG_COLOR_END
+
 register = template.Library()
 
 

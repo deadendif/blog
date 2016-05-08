@@ -4,8 +4,8 @@
 from django.http import Http404
 from django.views.generic.base import TemplateResponseMixin
 
-from callable_queryset import CallableQuerysetMixin
-from blog.models import Entry
+from .callable_queryset import CallableQuerysetMixin
+from ...models import Entry
 
 class EntryTimeConfMixin(object):
     """
@@ -31,7 +31,7 @@ class EntryVisibleMixin(object):
 
     def get_object(self, queryset=None):
         """
-        Validate visibility.
+        [Override] Validate visibility.
         """
         obj = super(EntryVisibleMixin, self).get_object(queryset)
         if obj.is_visible:

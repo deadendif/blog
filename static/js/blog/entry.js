@@ -32,7 +32,7 @@ var toggleFullscreenWhenScroll = function(){
     var isFullscreen = Cookies.get('isFullscreen');
     if (isFullscreen != 'true') {
         var toTop = $(document).scrollTop();
-        if (toTop > 200) {
+        if (toTop > $('#landmark-scroll').offset().top * 2 / 3) {
             if ($('#body-left').hasClass('eleven wide column')) {
                 $('#body-right').hide();
                 $('#body-left').removeClass('eleven wide column').addClass('sixteen wide column');
@@ -45,6 +45,7 @@ var toggleFullscreenWhenScroll = function(){
         }
     }
 };
+
 
 /* 加载完成时执行 */
 $(function(){

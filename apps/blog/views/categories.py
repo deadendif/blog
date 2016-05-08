@@ -4,8 +4,8 @@
 from django.views.generic.base import TemplateResponseMixin
 from django.views.generic.list import BaseListView
 
-from blog.utils import category_ancestors, category_children
-from mixins.categories import CategoryDetailMixin
+from ..utils import category_ancestors, category_children
+from .mixins.categories import CategoryDetailMixin
 
 class CategoryDetail(CategoryDetailMixin, BaseListView, TemplateResponseMixin):
     """

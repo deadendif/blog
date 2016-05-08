@@ -22,6 +22,7 @@
   <div class ="row">
     <!-- 左侧 -->
     <div class="eleven wide column" id="body-left">
+      <!-- 面包屑 -->
       <div class="row">
         <div class="ui large breadcrumb">
           <a href="/blog/" class="section">Home</a>
@@ -34,15 +35,15 @@
           {% endif %}
           {% endfor %}
         </div>
-        
         {% block fullscreen %}{% endblock %}
       </div>
-
+      
+      <!-- 子目录或标签 -->
       <div class="row" style="margin-top:12px;">
         <div class="ui small labels">
-          {% for label in labels %}
+        {% for label in labels %}
           <a href="{{ label.url }}" class="ui {{ label.name|color}} label">{{ label.name }}</a>
-          {% endfor %}
+        {% endfor %}
         </div>
         <div class="ui divider"></div>
       </div>
@@ -77,11 +78,16 @@
         <a class="ui green ribbon label"><i class="linkify icon"></i> 友情链接</a>
         {% get_sites %}
       </div>
-
+      
+      <!-- 位置标志 -->
+      <div id="landmark-scroll"></div>
     </div>
   </div>
 </div>
 {% endblock %}
 
 
-{% block js %}{% block subjs %}{% endblock %}{% endblock %}
+{% block js %}
+<script src="{% static 'js/blog/base.js' %}"></script>
+{% block subjs %}{% endblock %}
+{% endblock %}

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
-from blog.views.test import TestView
-from blog.views.entries import EntryDetail
+from ..views.test import TestView
+from ..views.entries import EntryDetail
 
 urlpatterns = [
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$', 

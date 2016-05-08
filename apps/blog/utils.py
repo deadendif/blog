@@ -8,9 +8,9 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from tagging.models import Tag
 
-from settings import PUBLISHED
-from settings import MARKDOWN_EXTENSIONS
-from breadcrumbs import Link
+from .settings import PUBLISHED
+from .settings import MARKDOWN_EXTENSIONS
+from .breadcrumbs import Link
 
 def entries_published(queryset):
     """

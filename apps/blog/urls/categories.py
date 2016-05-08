@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
-from blog.views.categories import CategoryDetail
+from ..views.categories import CategoryDetail
 
 
 urlpatterns = [

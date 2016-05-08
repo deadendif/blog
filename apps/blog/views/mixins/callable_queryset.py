@@ -14,7 +14,7 @@ class CallableQuerysetMixin(object):
 
     def get_queryset(self):
         """
-        Validate and call the queryset.
+        [Override] Validate and call the queryset.
         """
         if self.queryset is None:
             raise ImproperlyConfigured("'%s' must define 'queryset'" % self.__class__.__name__)

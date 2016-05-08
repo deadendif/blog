@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
-from blog.views.test import TestView
-from blog.views.archives import EntryIndex, EntryYear, EntryMonth
+from ..views.archives import EntryIndex, EntryYear, EntryMonth
 
 urlpatterns = [
     # url(r'^$', TestView.as_view(), name='test_view'),

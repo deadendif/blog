@@ -3,9 +3,9 @@
 
 from django.views.generic.dates import BaseDateDetailView
 
-from mixins.entries import EntryDetailMixin
-from blog.utils import category_ancestors, entry_tags
-from blog.breadcrumbs import Link
+from .mixins.entries import EntryDetailMixin
+from ..utils import category_ancestors, entry_tags
+from ..breadcrumbs import Link
 
 
 class EntryDetail(EntryDetailMixin, BaseDateDetailView):

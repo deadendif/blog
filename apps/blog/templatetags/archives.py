@@ -4,8 +4,8 @@
 from django import template
 from django.core.urlresolvers import reverse
 
-from blog.settings import RECENT_ARCHIVES_NUM
-from blog.utils import recent_year_month
+from ..settings import RECENT_ARCHIVES_NUM
+from ..utils import recent_year_month
 
 register = template.Library()
 

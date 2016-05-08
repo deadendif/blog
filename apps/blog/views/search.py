@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from ..breadcrumbs import Link
-from .mixins.tags import TagDetailMixin
+from .mixins.search import EntrySearchMixin
 
 
-class TagDetail(TagDetailMixin):
+class EntrySearch(EntrySearchMixin):
     """
-    Tag detail view.
+    Entry search view.
     """
 
     @property
@@ -15,4 +15,4 @@ class TagDetail(TagDetailMixin):
         """
         Private context data: breadcrumbs.
         """
-        return {'breadcrumbs': [Link('Tag : %s' % self.tag.name)], 'labels': []}
+        return {'breadcrumbs': [Link('Search : %s' % self.pattern)], 'labels': []}

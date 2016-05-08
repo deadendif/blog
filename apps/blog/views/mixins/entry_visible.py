@@ -11,7 +11,7 @@ class EntryVisibleMixin(object):
 
     def get_object(self, queryset=None):
         """
-        Validate visibility.
+        [Override] Validate visibility.
         """
         obj = super(self.__class__, self).get_object(queryset)
         if obj.is_visible:

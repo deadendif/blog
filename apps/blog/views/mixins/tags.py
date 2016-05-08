@@ -2,21 +2,23 @@
 # -*- coding: utf-8 -*-
 
 from django.http import Http404
+from django.views.generic.base import TemplateResponseMixin
+from django.views.generic.list import BaseListView
 from tagging.utils import get_tag
 from tagging.models import TaggedItem
 
-from archives import ArchiveConfMixin
-from blog.models import Entry
+from .archives import ArchiveConfMixin
+from ...models import Entry
 
 
-class TagDetailMixin(ArchiveConfMixin):
+class TagDetailMixin(ArchiveConfMixin, BaseListView, TemplateResponseMixin):
     """
     Mixin of tag detail. 
     """
 
     def get_queryset(self):
         """
-        Retrieve the tag by its name and get its published entries.
+        [Override] Retrieve the tag by its name and get its published entries.
         """
         self.tag = get_tag(self.kwargs['tag'])
         if self.tag is None:

@@ -90,3 +90,8 @@ h4 {
     padding-left: 16px;
 }
 
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+}
+

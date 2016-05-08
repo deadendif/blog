@@ -3,8 +3,8 @@
 
 from django.shortcuts import get_object_or_404
 
-from archives import ArchiveConfMixin
-from blog.models import Category, Entry
+from .archives import ArchiveConfMixin
+from ...models import Category, Entry
 
 def get_category_or_404(path):
     """
@@ -21,7 +21,7 @@ class CategoryDetailMixin(ArchiveConfMixin):
 
     def get_queryset(self):
         """
-        Retrieve the category by its path and get its published entries.
+        [Override] Retrieve the category by its path and get its published entries.
         """
         self.category = get_category_or_404(self.kwargs['path'])
         entries = reduce(lambda q,c: q|c.entries_published(), self.category.get_descendants(include_self=True), Entry.objects.none())

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
-from blog.views.tags import TagDetail
+from ..views.tags import TagDetail
 
 urlpatterns = [
     url(r'^(?P<tag>[^/]+(?u))/page/(?P<page>\d+)$',

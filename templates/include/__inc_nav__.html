@@ -6,12 +6,12 @@
     <a href="/blog/" class="item active">博客 </a>
     <a class="item">任务 </a>
     <a class="item">翻墙 </a>
-    <a class="item">关于 </a>
+
     <div class="right menu">
       <div class="item" style="margin-bottom:4px;">
         <div class="ui mini transparent icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
+          <input type="text" id="search-keyword" value="{{ pattern }}" placeholder="Search ...">
+          <i class="search link icon" id="search-btn"></i>
         </div>
       </div>
       {# <a class="ui item">登出 </a>  #}
