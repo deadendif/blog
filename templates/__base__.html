@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
     {% block loads %}{% endblock %}
-    <title>{% block ttl %}{% endblock %}</title>
+    <title>{% block ttl %}{% endblock %}-deadend</title>
 
     <!-- 图标 -->
     <link rel="icon" href="{% static 'img/share/favicon.ico' %}" type="image/x-icon" />
@@ -27,6 +27,9 @@
 
     <!-- 底栏 -->
     {% include 'include/__inc_foot__.html' %}
+
+    <!-- 固定位置标签 -->
+    {% block fix %}{% endblock %}
 
     <!-- js -->
     <script src="{% static 'js/share/jquery.min.js' %}"></script>

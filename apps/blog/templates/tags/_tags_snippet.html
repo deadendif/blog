@@ -2,6 +2,6 @@
 
 <div class="ui list">
   {% for t_tag in t_tags %}
-  <a href="{{ t_tag.url }}" class="ui {{ t_tag.count|size }} {{ t_tag.title|color }} label" style="margin-bottom: 4px;">{{ t_tag.title }} {{ t_tag.count }}</a>
+  <a href="{{ t_tag.url }}" class="ui {{ t_tag.count|size }} {{ t_tag.title|color }} label" style="margin-bottom: 4px;">{{ t_tag.title }} ({{ t_tag.count }})</a>
   {% endfor %}
 </div>

@@ -15,12 +15,15 @@ class EntryDetail(EntryDetailMixin, BaseDateDetailView):
     """
     # session_key = 'entry_passwd_%s'
 
-    def get_context_data(self, **kwargs):
-        context = super(EntryDetail, self).get_context_data(**kwargs)
+    @property
+    def private_context_data(self):
+        """
+        Private context data: title, breadcrumbs, direct subdirectories.
+        """
+        ttl = self.object.title
         breadcrumbs = category_ancestors(self.object.category, disable_last_url=False)
         breadcrumbs.append(Link(self.object.title))
-        context.update({'breadcrumbs': breadcrumbs, 'labels': entry_tags(self.object)})
-        return context
+        return {'ttl': ttl, 'breadcrumbs': breadcrumbs, 'labels': entry_tags(self.object)}
 
     # def get(self, request, *args, **kwargs):
     #     """

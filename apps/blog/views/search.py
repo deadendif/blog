@@ -15,4 +15,5 @@ class EntrySearch(EntrySearchMixin):
         """
         Private context data: breadcrumbs.
         """
-        return {'breadcrumbs': [Link('Search : %s' % self.pattern)], 'labels': []}
+        ttl = u'[搜索] %s' % self.pattern 
+        return {'ttl': ttl, 'breadcrumbs': [Link('Search : %s' % self.pattern)], 'labels': []}

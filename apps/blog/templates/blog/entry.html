@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 
-{% block ttl %}{% endblock %}
+{% block ttl %}{{ ttl }}{% endblock %}
 
 
 {% block subcss %}
@@ -31,6 +31,18 @@
     <div>{{ entry.html_content|safe }}</div>
   </div>
 </article>
+{% endblock %}
+
+
+{% block snippet %}{% endblock %}
+
+
+{% block fix %}
+<div style="position:fix">
+  <button class="circular ui icon button">
+    <i class="icon settings"></i>
+  </button>
+</div>
 {% endblock %}
 
 

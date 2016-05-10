@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django import template
-from ..models import Category
+from ..models import Category, Entry
 
 register = template.Library()
 
@@ -12,6 +12,6 @@ def get_root_categories():
     t_categories = [{
             'title': cg.title, 
             'url': cg.get_absolute_url(),
-            'count': 10
+            'count': reduce(lambda q,c: q + c.entries_published().count(), cg.get_descendants(include_self=True), 0)
         } for cg in Category.objects.filter(parent=None)]
     return {'t_categories': t_categories}

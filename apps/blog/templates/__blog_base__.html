@@ -8,7 +8,7 @@
 {% endblock %}
 
 
-{% block ttl %}blog{% endblock %}
+{% block ttl %}{% endblock %}
 
 
 {% block css %}
@@ -78,6 +78,9 @@
         <a class="ui green ribbon label"><i class="linkify icon"></i> 友情链接</a>
         {% get_sites %}
       </div>
+
+      <!-- 其他 -->
+      {% block snippet %}{% endblock %}
       
       <!-- 位置标志 -->
       <div id="landmark-scroll"></div>

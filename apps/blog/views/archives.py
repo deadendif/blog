@@ -24,11 +24,12 @@ class EntryIndex(EntryArchiveMixin, BaseArchiveIndexView):
     @property
     def private_context_data(self):
         """
-        Private context data: breadcrumbs, direct subdirectories.
+        Private context data: title, breadcrumbs, direct subdirectories.
         """
+        ttl = u'首页'
         categories = Category.objects.filter(parent=None)
         labels = [Link(cg.title, cg.get_absolute_url()) for cg in categories]
-        return {'breadcrumbs': [Link('Index')], 'labels': labels}
+        return {'ttl': ttl, 'breadcrumbs': [Link('Index')], 'labels': labels}
 
 
 class EntryYear(EntryArchiveMixin, BaseYearArchiveView):
@@ -42,9 +43,10 @@ class EntryYear(EntryArchiveMixin, BaseYearArchiveView):
         Private context data: breadcrumbs, direct subdirectories.
         """
         year = self.kwargs['year']
+        ttl = '%s年' % year
         labels = [Link('%02d月' % m, reverse('blog:archives:month', args=[year, '%02d' % m])) 
             for m in valid_month(year)]
-        return {'breadcrumbs': [Link('%s年' % year)], 'labels': labels}
+        return {'ttl': ttl, 'breadcrumbs': [Link('%s年' % year)], 'labels': labels}
 
 
 class EntryMonth(EntryArchiveMixin, BaseMonthArchiveView):
@@ -59,5 +61,6 @@ class EntryMonth(EntryArchiveMixin, BaseMonthArchiveView):
         """
         year = self.kwargs['year']
         month = self.kwargs['month']
+        ttl = '%s年%s月' % (year, month)
         breadcrumbs = [Link('%s年' % year, reverse('blog:archives:year', args=[year])), Link('%s月' % month)]
-        return {'breadcrumbs': breadcrumbs, 'labels': []}
+        return {'ttl': ttl, 'breadcrumbs': breadcrumbs, 'labels': []}
