@@ -16,7 +16,7 @@
 {% for entry in entry_list %}
 <article>
   <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
-  <p class="article-meta">发表于 {{ entry.create_time |date:"Y-m-d H:i" }}</p>
+  <p class="article-meta">发表于 {{ entry.publish_date |date:"Y-m-d H:i" }}</p>
   <p>{{ entry.excerpt }}</p>
   <p><a href="{{ entry.get_absolute_url }}">继续阅读 <i class="angle double right icon"></i></a></p>
 </article>

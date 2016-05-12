@@ -75,6 +75,9 @@ class Entry(models.Model):
             max_length=255, choices=ENTRY_DETAIL_TEMPLATES,
             default=ENTRY_DETAIL_TEMPLATES[0],
             help_text='The detail tempate of the entry.')
+    page_views = models.IntegerField('page view number',
+            default=0,
+            help_text='The page view number of the entry.')
 
     # Set managers
     objects = models.Manager()
