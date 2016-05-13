@@ -6,3 +6,4 @@ from blog.models.category import Category
 from blog.models.entry import Entry
 from blog.models.image import Image
 from blog.models.site import Site
+from blog.models.entry_counter import EntryCounter

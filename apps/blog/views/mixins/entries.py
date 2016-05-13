@@ -51,5 +51,6 @@ class EntryDetailMixin(EntryConfMixin, EntryVisibleMixin, CallableQuerysetMixin,
         """
         context = super(EntryDetailMixin, self).get_context_data(**kwargs)
         # context['entry'] = self.object
+        self.request.entry = self.object
         context.update(getattr(self, 'private_context_data', {}))
         return context

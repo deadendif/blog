@@ -36,3 +36,12 @@ MIN_KEYWORD_LENGTH = 3
 
 """ Entry search fields """
 SEARCH_FIELDS = ['title', 'content']
+
+""" Key patterns of cached entry counter """
+COUNTER_PAGE_VIEW_PTN = 'CT_ENTRY_PV_%s'
+COUNTER_USEFUL_PTN    = 'CT_ENTRY_UF_%s'
+COUNTER_USELESS_PTN   = 'CT_ENTRY_UL_%s'
+
+""" Redis config """
+REDIS_DB_BLOG = 1
+REDIS_EXPIRE_BLOG = 3600 * 24 * 30

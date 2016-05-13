@@ -2,17 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import time
+import logging
 import datetime
 import markdown as md
 from django.db.models import Q
 from django.utils import timezone
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, resolve
 from tagging.models import Tag
 
 from .settings import PUBLISHED
 from .settings import MARKDOWN_EXTENSIONS
 from .breadcrumbs import Link
 
+logger = logging.getLogger('file')
 
 def entries_published(queryset):
     """
@@ -92,3 +94,22 @@ def valid_month(year):
         1: []
     }
     return year_map[cmp(int(year), c_year)]
+
+
+def extract(request, delim=' ', item_format='[%s=%s]'):
+    """
+    Extract params from request for log.
+    """
+
+    def __extract(method, items):
+        if not items:
+            return ''
+        return method + delim + delim.join(item_format % (k,v) for k, v in items)
+
+    match = resolve(request.path)
+    params = {
+        'URL' : match.kwargs.items(),
+        'GET' : request.GET.items(),
+        'POST': request.POST.items()
+    }
+    return delim.join([p for p in [__extract(method, items) for method, items in params.items()] if p])

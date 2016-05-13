@@ -3,3 +3,11 @@
     font-size: 12px;
     color: #999;
 }
+
+.article-meta > span:not(:first-child) {
+    margin-left: 20px;
+}
+
+.article-meta > span i {
+    color: #16A085;
+}

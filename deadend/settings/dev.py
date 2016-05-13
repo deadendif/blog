@@ -2,10 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import base64
-# Import some utility functions
+import logging
+import logging.config
+
 from os.path import join
-# Fetch our common settings
 from common import *
+from settings import LOG_CONF_PATH, LOG_FILE_PATH
+
+logging.config.fileConfig(LOG_CONF_PATH, defaults={'logfilename': LOG_FILE_PATH})
+logger = logging.getLogger('file')
 
 # #########################################################
 

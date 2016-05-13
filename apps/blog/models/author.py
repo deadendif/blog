@@ -5,6 +5,6 @@ from django.contrib.auth.models import User
 
 class Author(User):
     """
-    Author of entries
+    Entries' model.
     """
     pass

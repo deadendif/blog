@@ -58,6 +58,7 @@ DEFAULT_APPS = [
 
 # Middlewares
 MIDDLEWARE_CLASSES = [
+    'blog.middlewares.LoggerMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,6 +67,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'blog.middlewares.EntryCounterMiddleware',
 ]
 
 # Template stuff

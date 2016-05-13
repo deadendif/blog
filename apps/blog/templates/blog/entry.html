@@ -2,6 +2,9 @@
 
 {% load staticfiles %}
 
+{% block subloads %}
+{% load entries %}
+{% endblock %}
 
 {% block ttl %}{{ ttl }}{% endblock %}
 
@@ -28,6 +31,13 @@
 <article class="markdown-body">
   <div class="entry-header">
     <h2 class="ui header">{{ entry.title }}</h2>
+    <p class="article-meta">
+      <span><a><i class="calendar outline icon"></i></a> {{ entry.publish_date |date:"Y-m-d H:i" }} </span>
+      <span><a><i class="unhide icon"></i></a> {{ entry|entry_counter:"page_view_num" }} </span>
+      <span><a><i class="thumbs outline up icon"></i></a> {{ entry|entry_counter:"useful_num" }} </span>
+      <span><a><i class="thumbs outline down icon"></i></a> {{ entry|entry_counter:"useless_num" }} </span>
+      {# <span><i class="comments outline icon"></i> 0 </span> #}
+    </p>
     <div>{{ entry.html_content|safe }}</div>
   </div>
 </article>

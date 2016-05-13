@@ -6,3 +6,4 @@
 # http://www.koopman.me/2015/01/django-signals-example/
 
 import request
+import entries

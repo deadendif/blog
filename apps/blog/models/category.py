@@ -11,7 +11,7 @@ from blog.utils import entries_published
 
 class Category(MPTTModel):
     """
-    Entry's Category
+    Entry's Category model.
     """
     title = models.CharField('title',
             max_length=255,
