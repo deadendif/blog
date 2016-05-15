@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from django.http import Http404
+import logging
+from django.http import Http404, HttpResponse
 from django.views.generic.base import TemplateResponseMixin
 
 from .callable_queryset import CallableQuerysetMixin
 from ...models import Entry
+
+logger = logging.getLogger('file')
 
 class EntryTimeConfMixin(object):
     """

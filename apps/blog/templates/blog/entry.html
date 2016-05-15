@@ -32,15 +32,28 @@
   <div class="entry-header">
     <h2 class="ui header">{{ entry.title }}</h2>
     <p class="article-meta">
-      <span><a><i class="calendar outline icon"></i></a> {{ entry.publish_date |date:"Y-m-d H:i" }} </span>
-      <span><a><i class="unhide icon"></i></a> {{ entry|entry_counter:"page_view_num" }} </span>
-      <span><a><i class="thumbs outline up icon"></i></a> {{ entry|entry_counter:"useful_num" }} </span>
-      <span><a><i class="thumbs outline down icon"></i></a> {{ entry|entry_counter:"useless_num" }} </span>
+      <span><i class="calendar outline icon"></i> {{ entry.publish_date |date:"Y-m-d H:i" }} </span>
+      <span><i class="unhide icon"></i> {{ entry|entry_counter:"page_view_num" }} </span>
+      <span><i class="thumbs outline up icon"></i> <span class="useful-num">{{ entry|entry_counter:"useful_num" }}</span></span>
+      <span><i class="thumbs outline down icon"></i> <span class="useless-num">{{ entry|entry_counter:"useless_num" }}</span></span>
       {# <span><i class="comments outline icon"></i> 0 </span> #}
     </p>
     <div>{{ entry.html_content|safe }}</div>
   </div>
 </article>
+
+<div class="ui one column stackable center aligned grid" style="margin: 10px 0px;">
+   <div class="column twelve wide">
+      <div class="ui left labeled button">
+        <div class="ui basic right pointing teal label not-link useful-num">{{ entry|entry_counter:"useful_num" }}</div>
+        <a class="ui teal button" id="useful-btn"><i class="thumbs outline up icon"></i></a>
+      </div>
+      <div class="ui labeled button">
+        <a class="ui orange button" id="useless-btn"><i class="thumbs outline down icon"></i></a>
+        <div class="ui basic orange left pointing label not-link useless-num">{{ entry|entry_counter:"useless_num" }}</div>
+      </div>
+   </div>
+</div>
 {% endblock %}
 
 
@@ -48,11 +61,13 @@
 
 
 {% block fix %}
+{% comment %}
 <div style="position:fix">
   <button class="circular ui icon button">
     <i class="icon settings"></i>
   </button>
 </div>
+{% endcomment %}
 {% endblock %}
 
 

@@ -41,6 +41,7 @@ PROJECT_TEMPLATES = [
 ]
 
 # Add apps/ to the Python path
+sys.path.append(PROJECT_ROOT)
 sys.path.append(normpath(join(PROJECT_ROOT, 'apps')))
 
 
@@ -58,6 +59,7 @@ DEFAULT_APPS = [
 
 # Middlewares
 MIDDLEWARE_CLASSES = [
+    'lib.middlewares.ViewNameMiddleware',
     'blog.middlewares.LoggerMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

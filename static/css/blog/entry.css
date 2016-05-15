@@ -16,3 +16,7 @@
 .entry-header .tag.label {
     margin-bottom: 16px;
 }
+
+.not-link {
+    cursor: default;
+}

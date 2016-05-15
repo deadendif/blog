@@ -47,6 +47,27 @@ var toggleFullscreenWhenScroll = function(){
 };
 
 
+/* 评价 useful or useless */
+var feedback = function(btn, type){
+    $.ajax({
+        type: 'POST',
+        url: './',
+        data: {'type': type},
+        dataType: 'json',
+        success: function(data) {
+            if (data[0]['status'] == 0) {
+                var id = btn.attr('id').replace('btn', 'num');
+                var before = parseInt($($('.' + id)[0]).text());
+                console.log(before);
+                $('.' + id).text(before + 1);
+            } else {
+                alert(data[0]['msg']);
+            }
+        }
+    });
+};
+
+
 /* 加载完成时执行 */
 $(function(){
     /* 代码高亮 */
@@ -60,4 +81,8 @@ $(function(){
 
     /* 监听滚动 */
     $(window).scroll(toggleFullscreenWhenScroll);
+
+    /* 监听反馈按钮 */
+    $('#useful-btn').on('click', function(){feedback($(this), 1);});
+    $('#useless-btn').on('click', function(){feedback($(this), -1)});
 });

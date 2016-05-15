@@ -37,11 +37,19 @@ MIN_KEYWORD_LENGTH = 3
 """ Entry search fields """
 SEARCH_FIELDS = ['title', 'content']
 
-""" Key patterns of cached entry counter """
-COUNTER_PAGE_VIEW_PTN = 'CT_ENTRY_PV_%s'
-COUNTER_USEFUL_PTN    = 'CT_ENTRY_UF_%s'
-COUNTER_USELESS_PTN   = 'CT_ENTRY_UL_%s'
+""" Min time delta between two valid page view """
+BLOG_ENTRY_ACTOR_DELTA = 30
+
 
 """ Redis config """
 REDIS_DB_BLOG = 1
-REDIS_EXPIRE_BLOG = 3600 * 24 * 30
+REDIS_EXPIRE_BLOG_ENTRY_COUNTER = 3600 * 24 * 30
+REDIS_EXPIRE_BLOG_ENTRY_VIEWER  = 60 * 1
+
+""" Key patterns of cached entry counter """
+PTN_BLOG_ENTRY_COUNTER_PV = 'BL_ET_CT_PV_%s'
+PTN_BLOG_ENTRY_COUNTER_UF = 'BL_ET_CT_UF_%s'
+PTN_BLOG_ENTRY_COUNTER_UL = 'BL_ET_CT_UL_%s'
+PTN_BLOG_ENTRY_VIEWER     = 'BL_ET_VW_%s'
+PTN_BLOG_ENTRY_FEEDBACK   = 'BL_ET_FB_%s'
+
