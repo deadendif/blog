@@ -56,9 +56,9 @@ class EntryDetail(EntryDetailMixin, BaseDateDetailView, JSONResponseMixin):
                 raise OperationTooFrequentException('Operation is too frequent')
         except Exception, e:
             if isinstance(e, InvalidRequestParamException):
-                status_json = {'status': 3, 'msg': u'操作太频繁~'}
+                status_json = {'status': 3, 'msg': 'Too frequent actions, please try again later.'}
             else:
-                status_json = {'status': 3, 'msg': u'已经反馈过~'}
+                status_json = {'status': 3, 'msg': u'You have done feedback on the article.'}
             logger.error('[%s] deal with feedback except, err: %s' % (request.view_name, str(e)))
         finally:
             return self.response([status_json])

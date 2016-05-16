@@ -20,3 +20,8 @@
 .not-link {
     cursor: default;
 }
+
+.modal-content {
+    font-size: 15px !important;
+    text-align: center;
+}

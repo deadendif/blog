@@ -1,6 +1,6 @@
 
 /* 恢复全屏状态 */
-var restoreFullscreen = function(){
+var restoreFullscreen = function() {
     var isFullscreen = Cookies.get('isFullscreen');
     if (isFullscreen == 'true') {
         $('#body-right').hide();
@@ -11,7 +11,7 @@ var restoreFullscreen = function(){
 
 
 /* 切换全屏状态 */
-var toggleFullscreen = function(setCookie){
+var toggleFullscreen = function(setCookie) {
     var isFullscreen = Cookies.get('isFullscreen');
     if (isFullscreen == undefined || isFullscreen == 'false') {
         $('#body-right').hide();
@@ -28,7 +28,7 @@ var toggleFullscreen = function(setCookie){
 
 
 /* 监听滚动状态切换全屏状态 */
-var toggleFullscreenWhenScroll = function(){
+var toggleFullscreenWhenScroll = function() {
     var isFullscreen = Cookies.get('isFullscreen');
     if (isFullscreen != 'true') {
         var toTop = $(document).scrollTop();
@@ -47,8 +47,8 @@ var toggleFullscreenWhenScroll = function(){
 };
 
 
-/* 评价 useful or useless */
-var feedback = function(btn, type){
+/* 反馈 useful or useless */
+var feedback = function(btn, type) {
     $.ajax({
         type: 'POST',
         url: './',
@@ -58,14 +58,54 @@ var feedback = function(btn, type){
             if (data[0]['status'] == 0) {
                 var id = btn.attr('id').replace('btn', 'num');
                 var before = parseInt($($('.' + id)[0]).text());
-                console.log(before);
                 $('.' + id).text(before + 1);
             } else {
-                alert(data[0]['msg']);
+                var feedbackConf = {
+                    'title': {'icon': 'lightning', 'text': 'Attention Please'},
+                    'content': data[0]['msg'],
+                    'actions': {
+                        'no' : {
+                            'exists': false
+                        },
+                        'yes': {
+                            'exists': true,
+                            'text': 'Got it'
+                        }
+                    }
+                };
+                buildModal(feedbackConf);
+                $('.basic.zzc.modal')
+                  .modal('setting', 'closable', false)
+                  .modal('show')
+                ;
             }
         }
     });
 };
+
+/* 模态窗初始化 */
+var buildModal = function(conf) {
+    if (conf['title'] != undefined) {
+        $('#md-title i').addClass(conf['title']['icon'] != undefined ? conf['title']['icon'] : '');
+        $('#md-title span').text(conf['title']['text'] != undefined ? conf['title']['text'] : '')
+    }
+
+    if (conf['content'] != undefined) {
+        $('#md-content p').text(conf['content']);
+    }
+
+    if (conf['actions'] != undefined) {
+        $.each(conf['actions'], function(key, val) {
+            if (conf['actions'][key]['exists']) {
+                $('#md-actions .' + key + ' span').text(conf['actions'][key]['text']);
+            } else {
+                $('#md-actions .' + key).remove();
+            }
+        });
+    } else {
+        $('#md-actions').remove();
+    }
+}
 
 
 /* 加载完成时执行 */
@@ -83,6 +123,10 @@ $(function(){
     $(window).scroll(toggleFullscreenWhenScroll);
 
     /* 监听反馈按钮 */
-    $('#useful-btn').on('click', function(){feedback($(this), 1);});
-    $('#useless-btn').on('click', function(){feedback($(this), -1)});
+    $('#useful-btn').on('click', function(){
+        feedback($(this), 1);
+    });
+    $('#useless-btn').on('click', function(){
+        feedback($(this), -1);
+    });
 });
