@@ -58,7 +58,7 @@ class EntryDetail(EntryDetailMixin, BaseDateDetailView, JSONResponseMixin):
             if isinstance(e, InvalidRequestParamException):
                 status_json = {'status': 3, 'msg': 'Too frequent actions, please try again later.'}
             else:
-                status_json = {'status': 3, 'msg': u'You have done feedback on the article.'}
+                status_json = {'status': 3, 'msg': u'You have given your feedback on the article.'}
             logger.error('[%s] deal with feedback except, err: %s' % (request.view_name, str(e)))
         finally:
             return self.response([status_json])

@@ -17,7 +17,7 @@ class ModelAdapter(object):
         """
         Adapt param.
         """
-        if isinstance(instance_or_id, int):
+        if isinstance(instance_or_id, (int, long)):
             return self.__model_class.objects.get(id=instance_or_id)
         elif isinstance(instance_or_id, self.__model_class):
             return instance_or_id

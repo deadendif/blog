@@ -21,6 +21,7 @@ class EntryCounterCache(object):
 
     def __init__(self, entry_or_id):
         self.__r = redis.StrictRedis(connection_pool=BLOG_REDIS_CONN_POOL)
+        self.__pipe = None
         self.__expire = settings.REDIS_EXPIRE_BLOG_ENTRY_COUNTER
         self.__entry = entry_adapter.adapt(entry_or_id)
         self.__map = {
@@ -33,13 +34,19 @@ class EntryCounterCache(object):
     def entry(self):
         return self.__entry
 
+    @property
+    def pipe(self):
+        if self.__pipe is None:
+            self.__pipe = self.__r.pipeline()
+        return self.__pipe
+
     def get_key(self, ctype):
         key = self.__map.get(ctype, None)
         if key is None:
             raise InvalidCounterTypeException(
                 'Invalid type of entry counter, type="%s"' % str(ctype))
         else:
-            key = key % str(self.entry.id)
+            key = key % self.entry.id
         return key
 
     def get(self, ctype):
@@ -66,6 +73,12 @@ class EntryCounterCache(object):
         """
         key = self.get_key(ctype)
         self.__r.incr(key, delta)
+
+    def delete(self):
+        """
+        Delete all counters of the entry.
+        """
+        self.__r.delete(*(tuple([ptn % self.entry.id for ptn in self.__map.values()])))
 
 
 class EntryActorIpCache(object):
@@ -107,4 +120,10 @@ class EntryActorIpCache(object):
         Remove members whose socre between min_score and max_score.
         """
         self.__r.zremrangebyscore(self.key, min_score, max_score)
+
+    def delete(self):
+        """
+        Delete actor's ips of the entry.
+        """
+        self.__r.delete(self.__key)
 
