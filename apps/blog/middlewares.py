@@ -20,7 +20,9 @@ class LoggerMiddleware(object):
     def process_request(self, request):
         try:
             logger.info('[%s] Enter' % request.view_name)
-            logger.info('[%s] Params: %s' % (request.view_name, extract(request)))
+            ip = request.META.get('REMOTE_ADDR', '')
+            ua = request.META.get('HTTP_USER_AGENT', '')
+            logger.info('[%s] [ip=%s] [ua=%s] Params: %s' % (request.view_name, ip, ua, extract(request)))
         except Exception, e:
             pass
         finally:
