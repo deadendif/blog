@@ -1,0 +1,74 @@
+{% extends '__base__.html' %}
+
+{% load staticfiles %}
+
+{% block loads %}{% endblock %}
+
+
+{% block ttl %}关于{% endblock %}
+
+
+{% block css %}{% endblock %}
+
+
+{% block body %}
+<div class="ui grid" style="min-height: 600px;">
+  <div class="row">
+    <div class="eleven wide column">
+      <div class="ui grid">
+        <div class="three wide column">
+          <div class="ui vertical pointing secondary demo menu" style="width: 100%">
+            <a class="active red item" data-tab="first"><i class="mail icon" style="float:none;"></i> 发邮件</a>
+            <a class="blue item" data-tab="second"><i class="info circle icon" style="float:none;"></i> 关于我</a>
+            <a class="green item" data-tab="third"><i class="thumbs up icon" style="float:none;"></i> 感&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;谢</a>
+          </div>
+        </div>
+        <div class="thirteen wide stretched column">
+          <div class="ui active tab" data-tab="first">
+            First
+          </div>
+          <div class="ui tab" data-tab="second">
+            Second
+          </div>
+          <div class="ui tab" data-tab="third">
+            Third
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="five wide column">
+      <div class="ui people shape">
+        <div class="sides">
+          <div class="side active">
+            <div class="ui card">
+              <div class="image">
+                <img src="https://avatars1.githubusercontent.com/u/6963770?v=3&s=460">
+              </div>
+              <div class="content">
+                <a href="https://github.com/deadEnding" target="blank" class="header"><i class="github icon"></i>deadEnding</a>
+                <div class="meta">
+                  <span class="date"><i class="calendar icon"></i> Joined on Mar 16, 2014</span>
+                </div>
+                <div class="description">&nbsp;&nbsp;&nbsp;&nbsp;你要克服的是你的虚荣心，是你的炫耀欲，你要对付的是你的时刻想要冲出来想要出风的小聪明。<br/><span style="float:right">—— 毛姆</span></div>
+              </div>
+              <div class="extra content">
+                <a><i class="user icon"></i> 22 Friends </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script>
+  $(function(){
+    $('.demo.menu .item').tab({history:false});
+  });
+</script>
+{% endblock %}

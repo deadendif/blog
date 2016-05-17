@@ -39,6 +39,7 @@ CUSTOM_APPS = [
     'mptt',
     'tagging',
     'blog',
+    'about',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
