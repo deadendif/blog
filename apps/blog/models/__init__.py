@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from blog.models.author import Author
-from blog.models.category import Category
-from blog.models.entry import Entry
-from blog.models.image import Image
-from blog.models.site import Site
-from blog.models.entry_counter import EntryCounter
+from .author import Author
+from .category import Category
+from .entry import Entry
+from .image import Image
+from .site import Site
+from .entry_counter import EntryCounter

@@ -45,9 +45,24 @@ CUSTOM_APPS = [
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
 
 
-##################### OVERRIDE ######################
+######################### OVERRIDE ########################
 USE_TZ = False
 
 LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
+
+########################## EMAIL ##########################
+EMAIL_HOST          = 'smtp.163.com'
+EMAIL_PORT          = 25
+EMAIL_HOST_USER     = '18810543730@163.com'
+EMAIL_HOST_PASSWORD = '1qaz@WSX'
+
+
+######################## MANAGERS #########################
+ADMINS = (
+    ('deadend', 'deadend.endif@gmail.com'),
+    ('deadend', 'deadend.endif@qq.com'),
+)
+
+MANAGERS = ADMINS

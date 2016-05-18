@@ -12,7 +12,7 @@
 
 
 {% block body %}
-<div class="ui grid" style="min-height: 600px;">
+<div class="ui grid">
   <div class="row">
     <!-- Left -->
     <div class="eleven wide column">
@@ -40,27 +40,31 @@
       {% endcomment %}
 
       <h3 class="ui dividing header" style="margin-top:10px;">发邮件<a class="anchor" id="starter"></a></h3>
-      <form class="ui form">
+      <form class="ui form" id="testform">
         <div class="field">
           <div class="two fields">
             <div class="field">
               <label>Your Email</label>
-              <input type="text" name="email-addr" placeholder="Your Email">
+              <input type="text" name="address" maxlength="32" placeholder="Your Email">
             </div>
             <div class="field">
               <label>Your Name</label>
-              <input type="text" name="email-name" placeholder="Your Name">
+              <input type="text" name="name" maxlength="16" placeholder="Your Name">
             </div>
           </div>
         </div>
         <div class="field">
           <label>Email Topic</label>
-          <input type="text" name="email-topic" placeholder="Email Topic">
+          <input type="text" name="topic" maxlength="64"  placeholder="Email Topic">
         </div>
         <div class="field">
-          <label>Text</label>
-          <textarea style="margin-top: 0px; margin-bottom: 0px; height: 231px;"></textarea>
+          <label>Email Content</label>
+          <textarea name="content" maxlength="512"  placeholder="Email Content"></textarea>
         </div>
+        <div style="text-align:center">
+          <button class="ui secondary small button" type="submit"><i class="send icon"></i> Send </button>
+        </div>
+        <div class="ui error message"></div>
       </form>
       
       <br>
@@ -125,9 +129,5 @@
 
 
 {% block js %}
-<script>
-  $(function(){
-    $('.about.menu .item').tab({history:false});
-  });
-</script>
+<script src="{% static 'js/about/about.js' %}"></script>
 {% endblock %}

@@ -28,14 +28,19 @@
     <!-- 底栏 -->
     {% include 'include/__inc_foot__.html' %}
 
+    <!-- 模态框 -->
+    {% include 'include/__inc_modal__.html' %}
+
     <!-- 固定位置标签 -->
     {% block fix %}{% endblock %}
+    
 
     <!-- js -->
     <script src="{% static 'js/share/jquery.min.js' %}"></script>
     <script src="{% static 'js/share/js.cookie.js' %}"></script>
     <script src="{% static 'js/share/semantic.min.js' %}"></script>
     <script src="{% static 'js/share/ajaxPost.js' %}"></script>
+    <script src="{% static 'js/share/share.js' %}"></script>
     {% block js %}{% endblock %}
   </body>
 </html>

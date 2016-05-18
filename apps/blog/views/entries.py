@@ -7,8 +7,8 @@ from django.http import HttpResponse
 from django.views.generic.dates import BaseDateDetailView
 
 from lib.exceptions import InvalidRequestParamException, OperationTooFrequentException
+from lib.mixins import JSONResponseMixin
 from .mixins.entries import EntryDetailMixin
-from .mixins.response import JSONResponseMixin
 from ..utils import category_ancestors, entry_tags
 from ..caches import EntryCounterCache, EntryActorIpCache
 from ..breadcrumbs import Link
@@ -51,7 +51,7 @@ class EntryDetail(EntryDetailMixin, BaseDateDetailView, JSONResponseMixin):
                 ctype = 'useful_num' if type == 1 else 'useless_num'
                 entry_counter.incr(ctype)
                 entry_actor.add(ip)
-                status_json = {'status': 0, 'msg': 'success'}
+                status_json = {'status': 0, 'msg': 'Success'}
             else:
                 raise OperationTooFrequentException('Operation is too frequent')
         except Exception, e:

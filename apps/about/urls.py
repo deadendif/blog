@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url, include
-import views
+from .views import AboutView
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', AboutView.as_view(), name='index'),
 ]
