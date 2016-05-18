@@ -14,10 +14,12 @@
 {% block body %}
 <div class="ui grid" style="min-height: 600px;">
   <div class="row">
+    <!-- Left -->
     <div class="eleven wide column">
+      {% comment %}
       <div class="ui grid">
         <div class="three wide column">
-          <div class="ui vertical pointing secondary demo menu" style="width: 100%">
+          <div class="ui vertical pointing secondary about menu" style="width: 100%">
             <a class="active red item" data-tab="first"><i class="mail icon" style="float:none;"></i> 发邮件</a>
             <a class="blue item" data-tab="second"><i class="info circle icon" style="float:none;"></i> 关于我</a>
             <a class="green item" data-tab="third"><i class="thumbs up icon" style="float:none;"></i> 感&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;谢</a>
@@ -35,8 +37,48 @@
           </div>
         </div>
       </div>
+      {% endcomment %}
+
+      <h3 class="ui dividing header" style="margin-top:10px;">发邮件<a class="anchor" id="starter"></a></h3>
+      <form class="ui form">
+        <div class="field">
+          <div class="two fields">
+            <div class="field">
+              <label>Your Email</label>
+              <input type="text" name="email-addr" placeholder="Your Email">
+            </div>
+            <div class="field">
+              <label>Your Name</label>
+              <input type="text" name="email-name" placeholder="Your Name">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Email Topic</label>
+          <input type="text" name="email-topic" placeholder="Email Topic">
+        </div>
+        <div class="field">
+          <label>Text</label>
+          <textarea style="margin-top: 0px; margin-bottom: 0px; height: 231px;"></textarea>
+        </div>
+      </form>
+      
+      <br>
+      <h3 class="ui dividing header">关于我<a class="anchor" id="starter"></a></h3>
+      <div class="ui piled segment">
+        <h4 class="ui header">简介</h4>
+        <p>本科计算机专业，就读于北京邮电大学，即将本校读研，研究生阶段学习大致方向是数据仓库、大数据。</p>
+
+        <h4 class="ui header">说明</h4>
+        <p>对编程感兴趣，自大一接触编程以来，个人水平虽然有所提高，但还是停留在技术渣的水平，深层次的技术还有待学习。虽然还没达到写博客的水平，有点不自量力，但还是希望自己能通过博客积累知识，不断提高自己。</p>
+
+        <h4 class="ui header">联系</h4>
+        <p>有任何问题和意见随意来信，互相交流，共同进步</p>
+        <p><strong>Email</strong>: <a href="mailto:deadend.endif@qq.com"> deadend.endif@qq.com</a></p>
+      </div>
     </div>
 
+    <!-- Right -->
     <div class="five wide column">
       <div class="ui people shape">
         <div class="sides">
@@ -50,7 +92,24 @@
                 <div class="meta">
                   <span class="date"><i class="calendar icon"></i> Joined on Mar 16, 2014</span>
                 </div>
-                <div class="description">&nbsp;&nbsp;&nbsp;&nbsp;你要克服的是你的虚荣心，是你的炫耀欲，你要对付的是你的时刻想要冲出来想要出风的小聪明。<br/><span style="float:right">—— 毛姆</span></div>
+                <div class="description">&nbsp;&nbsp;&nbsp;&nbsp;你要克服的是你的虚荣心，是你的炫耀欲，你要对付的是你的时刻想要冲出来想要出风头的小聪明。<br/><span style="float:right">—— 毛姆</span></div>
+              </div>
+              <div class="extra content">
+                <a><i class="user icon"></i> 22 Friends </a>
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="ui card">
+              <div class="image">
+                <img src="https://avatars1.githubusercontent.com/u/6963770?v=3&s=460">
+              </div>
+              <div class="content">
+                <a class="header"><i class="mail square icon"></i> deadend</a>
+                <div class="meta">
+                  <span class="date"><i class="calendar icon"></i> Joined on Mar 16, 2014</span>
+                </div>
+                <div class="description">&nbsp;&nbsp;&nbsp;&nbsp;你要克服的是你的虚荣心，是你的炫耀欲，你要对付的是你的时刻想要冲出来想要出风头的小聪明。<br/><span style="float:right">—— 毛姆</span></div>
               </div>
               <div class="extra content">
                 <a><i class="user icon"></i> 22 Friends </a>
@@ -68,7 +127,7 @@
 {% block js %}
 <script>
   $(function(){
-    $('.demo.menu .item').tab({history:false});
+    $('.about.menu .item').tab({history:false});
   });
 </script>
 {% endblock %}
