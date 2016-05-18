@@ -76,6 +76,7 @@ var feedback = function(btn, type) {
                 buildModal(feedbackConf);
                 $('.basic.zzc.modal')
                   .modal('setting', 'closable', false)
+                  .modal('setting', 'duration', 200)
                   .modal('show')
                 ;
             }
