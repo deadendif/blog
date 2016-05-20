@@ -28,6 +28,9 @@ class Email(models.Model):
     send_time = models.DateTimeField('email time',
         default=timezone.now,
         help_text='Datetime when sending email.')
+    is_spam = models.NullBooleanField('is spam',
+        null=True,
+        help_text='Whether email is spam.')
     success = models.BooleanField('success',
         default=False, null=False,
         help_text='Whether send email successfully.')

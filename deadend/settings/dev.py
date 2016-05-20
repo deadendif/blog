@@ -7,9 +7,9 @@ import logging.config
 
 from os.path import join
 from common import *
-from settings import LOG_CONF_PATH, LOG_FILE_PATH
+from settings import *
 
-logging.config.fileConfig(LOG_CONF_PATH, defaults={'logfilename': LOG_FILE_PATH})
+logging.config.fileConfig(LOG_CONF_PATH, defaults={'logfilename': LOG_MAIN_FILE_PATH})
 logger = logging.getLogger('file')
 
 # #########################################################
@@ -66,3 +66,5 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+

@@ -9,6 +9,7 @@ from django.conf import settings
 
 from lib.mixins import JSONResponseMixin
 from about.forms import EmailForm
+from tasks import app
 
 logger = logging.getLogger('file')
 
@@ -37,9 +38,9 @@ class AboutView(JSONResponseMixin, TemplateView):
                 email.ip = ip
                 email.ua = ua
                 email.save()
-                send_mail(form.cleaned_data['topic'], form.cleaned_data['content'], settings.EMAIL_HOST_USER, [admin[1] for admin in settings.ADMINS])
+                app.send_task('tasks.send_email', (email.id,), queue='email')
             except Exception, e:
-                logger.error(str(e))
+                logger.error('[%s] Send email except, err: %s' % (request.view_name, str(e)))
                 return self.response([{'status': 2, 'msg': 'System Error'}])
             else:
                 return self.response([{'status': 0, 'msg': 'Success'}])

@@ -29,5 +29,14 @@ class OperationTooFrequentException(Exception):
     """
     Operation is too frequent.
     """
-    def __init__(self, e="Operation is too frequent"):
+    def __init__(self, e='Operation is too frequent'):
         super(OperationTooFrequentException, self).__init__(e)
+
+
+class IsSpamException(Exception):
+    """
+    Email is spam.
+    """
+    def __init__(self, e='Email is spam'):
+        super(IsSpamException, self).__init__(e)
+        

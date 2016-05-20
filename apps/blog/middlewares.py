@@ -55,6 +55,6 @@ class EntryCounterMiddleware(object):
                     entry_counter.incr('page_view_num')
                     entry_actor.add(ip)
         except Exception, e:
-            logger.error('[%s] add page view number except, err: %s' % (view_name, str(e)))
+            logger.error('[%s] Add page view number except, err: %s' % (view_name, str(e)))
         finally:
             return response

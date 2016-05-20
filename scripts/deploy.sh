@@ -15,3 +15,8 @@ pip uninstall PIL
 sudo apt-get install libjpeg8-dev
 pip install PIL
 ## 没有成功
+
+
+# celery 启动
+# http://docs.celeryproject.org/en/latest/genindex.html
+celery worker -A tasks -Q default -l INFO -f logs/celery.server.log -c 4 --time-limit=10 
