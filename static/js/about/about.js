@@ -51,6 +51,9 @@ $(function(){
             }
         })
         .submit(function(event){
+            if ($('.ui.form .field.error').length > 0) {
+                return;
+            }
             event.preventDefault();
             var datas = {};
             $.each($(this).serializeArray(), function(i, val){
@@ -61,12 +64,24 @@ $(function(){
                 url: './',
                 data: datas,
                 dataType: 'json',
+                beforeSend: function(){
+                    $('#send-email-btn').addClass('loading');
+                },
+                complete: function(){
+                    $('#send-email-btn').removeClass('loading');
+                },
                 success: function(data){
                     if (data[0]['status'] == 0) {
-                        
+                        $('.ui.form').find('input').val('');
+                        $('.ui.form').find('textarea').val('');
+                        $('#send-email-btn').removeClass('secondary').addClass('green');
+                    } else {
+                        $('#send-email-btn').removeClass('secondary').addClass('red');
                     }
                 }
             });
         });
-
+    $('.ui.form input').focus(function(){
+        $('#send-email-btn').addClass('secondary');
+    });
 });

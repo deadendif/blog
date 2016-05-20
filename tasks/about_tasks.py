@@ -17,16 +17,16 @@ logger = logging.getLogger('file')
 class SendEmailTask(BaseTask):
 
     name = 'tasks.send_email'
-    max_retries = 2
-    default_retry_delay = 60 * 3
-    soft_time_limit = 10
+    max_retries = settings.EMAIL_MAX_RETRIES
+    default_retry_delay = settings.EMAIL_DEFAULT_RETRY_DELAY
+    soft_time_limit = settings.EMAIL_SOFT_TIME_LIMIT
 
     def _build_content(self, email):
         """
         Build email content.
         """
         def __build_item(key, val):
-            return '【%s】:%s' % (str(key), ('\n' if len(str(val)) > 60 else '') + str(val))
+            return '【%s】:%s' % (str(key), ('\n' if len(str(val)) > 100 else ' ') + str(val))
 
         fields = ['name', 'address', 'send_time', 'content', 'id', 'ip', 'ua']
         return '\n\n'.join([__build_item(field, getattr(email, field)) for field in fields])

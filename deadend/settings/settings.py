@@ -42,3 +42,9 @@ CELERY_ANNOTATIONS = {
 CELERY_ROUTES = {
     'tasks.send_email': {'queue': 'email'},
 }
+
+
+""" Send email task settings """
+EMAIL_MAX_RETRIES = 2
+EMAIL_DEFAULT_RETRY_DELAY = 60 * 3
+EMAIL_SOFT_TIME_LIMIT = 10
