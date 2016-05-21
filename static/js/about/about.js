@@ -61,7 +61,7 @@ $(function(){
             });
             $.ajax({
                 type: 'POST',
-                url: './',
+                url: '/about/',
                 data: datas,
                 dataType: 'json',
                 beforeSend: function(){
