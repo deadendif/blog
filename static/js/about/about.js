@@ -75,6 +75,24 @@ $(function(){
                         $('.ui.form').find('input').val('');
                         $('.ui.form').find('textarea').val('');
                         $('#send-email-btn').removeClass('secondary').addClass('green');
+                        var feedbackConf = {
+                            'title': {'icon': 'coffee', 'text': 'Thank You'},
+                            'content': 'I have gotten your email. Too many thanks.',
+                            'actions': {
+                                'no' : {
+                                    'exists': false
+                                },
+                                'yes': {
+                                    'exists': true,
+                                    'text': 'Okay'
+                                }
+                            }
+                        };
+                        buildModal(feedbackConf);
+                        $('.basic.share.modal')
+                          .modal('setting', 'duration', 200)
+                          .modal('show')
+                        ;
                     } else {
                         $('#send-email-btn').removeClass('secondary').addClass('red');
                     }

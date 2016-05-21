@@ -11,7 +11,7 @@ from .base import BaseTask
 from lib.exceptions import IsSpamException 
 from about.models import Email 
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('tasks')
 
 
 class SendEmailTask(BaseTask):
@@ -45,7 +45,7 @@ class SendEmailTask(BaseTask):
         Run task.
         """
         try:
-            logging.info('[%s] [email_id=%d] [retry=%d] Enter' % (self.name, email_id, self.request.retries))
+            logger.info('[%s] [email_id=%d] [retry=%d] Enter' % (self.name, email_id, self.request.retries))
             email = Email.objects.get(id=email_id)
             if self._check_spam(email):
                 raise IsSpamException
@@ -56,3 +56,5 @@ class SendEmailTask(BaseTask):
         except Exception, e:
             logger.warning('[%s] [email_id=%d] [retry=%d] Run task except, err: %s' % (self.name, email_id, self.request.retries, str(e)))
             self.retry(exc=e)
+        else:
+            logger.info('[%s] [email_id=%d] [retry=%d] Success' % (self.name, email_id, self.request.retries))

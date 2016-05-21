@@ -9,8 +9,8 @@ from os.path import join
 from common import *
 from settings import *
 
-logging.config.fileConfig(LOG_CONF_PATH, defaults={'logfilename': LOG_MAIN_FILE_PATH})
-logger = logging.getLogger('file')
+logging.config.fileConfig(LOG_CONF_PATH, disable_existing_loggers=False,
+        defaults={'logfilename': LOG_MAIN_FILE_PATH, 'name': 'file'})
 
 # #########################################################
 
