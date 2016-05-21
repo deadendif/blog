@@ -18,6 +18,10 @@ logger = logging.getLogger('file')
 DEBUG = True
 
 
+# ##### DEBUG CONFIGURATION ###############################
+ALLOWED_HOSTS = '*'
+
+
 # ##### DATABASE CONFIGURATION ############################
 DATABASES = {
     # 'default': {
