@@ -15,6 +15,6 @@ class ViewNameMiddleware(object):
         try:
             request.view_name = resolve(request.path).view_name
         except Exception, e:
-            logger.error('[ViewNameMiddleware] add view name to request except, err: %s' % str(e))
+            logger.warning('[ViewNameMiddleware] Resolve request path [path=%s] failed' % request.path)
         finally:
             return None

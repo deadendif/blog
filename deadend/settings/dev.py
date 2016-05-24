@@ -15,7 +15,8 @@ logging.config.fileConfig(LOG_CONF_PATH, disable_existing_loggers=False,
 # #########################################################
 
 # ##### DEBUG CONFIGURATION ###############################
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 
 # ##### DEBUG CONFIGURATION ###############################
