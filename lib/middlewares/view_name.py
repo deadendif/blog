@@ -15,6 +15,8 @@ class ViewNameMiddleware(object):
         try:
             request.view_name = resolve(request.path).view_name
         except Exception, e:
-            logger.warning('[ViewNameMiddleware] Resolve request path [path=%s] failed' % request.path)
+            ip = request.META.get('REMOTE_ADDR', '')
+            ua = request.META.get('HTTP_USER_AGENT', '')
+            logger.warning('[ViewNameMiddleware] [ip=%s] [ua=%s] Resolve request path [path=%s] failed' % (ip, ua, request.path))
         finally:
             return None
