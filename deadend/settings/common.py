@@ -59,6 +59,7 @@ DEFAULT_APPS = [
 
 # Middlewares
 MIDDLEWARE_CLASSES = [
+    'sslify.middleware.SSLifyMiddleware',
     'lib.middlewares.ViewNameMiddleware',
     'blog.middlewares.LoggerMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

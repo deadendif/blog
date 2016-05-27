@@ -6,6 +6,9 @@ pip install django-tagging
 pip install markdown
 pip install Pillow
 
+# https 
+pip install django-sslify
+
 # 安装PIL
 sudo apt-get install python-imaging
 
@@ -24,4 +27,6 @@ celery worker -A tasks -Q default -l INFO -f logs/celery.server.log -c 4 --time-
 
 # uwsgi
 uwsgi --ini scripts/deploy/uwsgi.ini
-uwsgi --reload 
+uwsgi --reload /tmp/uwsgi.deadend.pid
+
+
