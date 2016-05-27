@@ -25,7 +25,7 @@
       <!-- 面包屑 -->
       <div class="row">
         <div class="ui large breadcrumb">
-          <a href="/blog/" class="section">Home</a>
+          <a href="{% url 'blog:archives:index' %}" class="section">Home</a>
           {% for crumb in breadcrumbs %}
           <i href="{{ crumb.url }}" class="right angle icon divider"></i>
           {% if crumb.url %}
