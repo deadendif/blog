@@ -4,9 +4,9 @@
 
 <div class="ui secondary pointing blue menu {# fixed top #}" style="font-size:18px;">
   <div class="ui container">
-    <a href="/blog/" class="item" style="font-weight:bold;color:green">deadend</a>
+    <a href="{% url 'blog:archives:index' %}" class="item" style="font-weight:bold;color:green">deadend</a>
     {% if request.path|location:'blog' %}
-    <a href="/blog/" class="item active">博客 </a>
+    <a href="{% url 'blog:archives:index' %}" class="item active">博客 </a>
     <a class="item">爬虫 </a>
     <a class="item">翻墙 </a>
 
@@ -20,8 +20,8 @@
       {# <a class="ui item">登出 </a>  #}
     </div>
     {% else %}
-    <a href="/blog/" class="item"><i class="home icon"></i></a>
-    <a href="/blog/" class="item active">关于 </a>
+    <a href="{% url 'blog:archives:index' %}" class="item"><i class="home icon"></i></a>
+    <a href="{% url 'about:index' %}" class="item active">关于 </a>
     {% endif %}
   </div>
 </div>

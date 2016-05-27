@@ -21,9 +21,9 @@
       </div>
     </div>
     <div class="ui section divider"></div>
-    <a href="/blog/"><img src="{% static 'img/share/favicon_72.ico' %}" class="ui centered mini image"></a>
+    <a href="{% url 'blog:archives:index' %}"><img src="{% static 'img/share/favicon_72.ico' %}" class="ui centered mini image"></a>
     <div class="ui horizontal small divided link list">
-      <a class="item" href="/blog/">deadend from BUPT</a>
+      <a class="item" href="{% url 'blog:archives:index' %}">deadend from BUPT</a>
     </div>
   </div>
 </div>
