@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
-from ..views.test import TestView
 from ..views.entries import EntryDetail
 
 urlpatterns = [

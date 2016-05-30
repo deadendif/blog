@@ -10,7 +10,6 @@ from django.views.generic.dates import BaseTodayArchiveView
 from django.core.urlresolvers import reverse
 
 from .mixins.archives import EntryArchiveMixin
-from .mixins.response import RenderMixin
 from ..models import Entry, Category
 from ..breadcrumbs import Link
 from ..utils import valid_month

@@ -5,8 +5,6 @@ from django.conf.urls import url
 from ..views.archives import EntryIndex, EntryYear, EntryMonth
 
 urlpatterns = [
-    # url(r'^$', TestView.as_view(), name='test_view'),
-
     # Index archive
     url(r'^page/(?P<page>\d+)/$',
         EntryIndex.as_view(),
