@@ -7,7 +7,7 @@ HIDDEN    = 2
 PUBLISHED = 3
 
 """ Entry detail templates """
-ENTRY_DETAIL_TEMPLATES = [('xxx', '111'), ]
+ENTRY_DETAIL_TEMPLATES = [('default', 'default'), ]
 
 """ Upload path """
 UPLOAD_IMAGE_TO = 'images/'

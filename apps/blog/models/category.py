@@ -21,7 +21,10 @@ class Category(MPTTModel):
             help_text="Used to build the category\' URL.")
     description = models.TextField('description',
             blank=True,
-            help_text='Describe the category.')
+            help_text="Describe the category.")
+    weight = models.IntegerField('weight',
+            default=0,
+            help_text="Used to sort category.")
     parent = TreeForeignKey(
             'self', related_name='children', null=True, blank=True, db_index=True,
             help_text='Parent category.')
