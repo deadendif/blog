@@ -29,4 +29,7 @@ celery worker -A tasks -Q default -l INFO -f logs/celery.server.log -c 4 --time-
 uwsgi --ini scripts/deploy/uwsgi.ini
 uwsgi --reload /tmp/uwsgi.deadend.pid
 
+# mysql
+mysqldump -u 用户名 -p -t deadend blog_entry > entry.sql
+
 
