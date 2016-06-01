@@ -9,7 +9,7 @@ from blog.caches import EntryActorIpCache
 from blog.models import Entry
 from blog.settings import BLOG_ENTRY_ACTOR_DELTA, PTN_BLOG_ENTRY_VIEWER, PTN_BLOG_ENTRY_FEEDBACK
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('offline')
 
 
 class Command(BaseCommand):

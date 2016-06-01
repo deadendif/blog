@@ -8,7 +8,8 @@ from django.views.generic.base import TemplateResponseMixin
 from .callable_queryset import CallableQuerysetMixin
 from ...models import Entry
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
+
 
 class EntryTimeConfMixin(object):
     """

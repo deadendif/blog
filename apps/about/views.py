@@ -11,7 +11,7 @@ from lib.mixins import JSONResponseMixin
 from about.forms import EmailForm
 from tasks import app
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
 
 
 class AboutView(JSONResponseMixin, TemplateView):

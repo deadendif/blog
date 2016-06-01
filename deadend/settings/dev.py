@@ -10,7 +10,7 @@ from common import *
 from settings import *
 
 logging.config.fileConfig(LOG_CONF_PATH, disable_existing_loggers=False,
-        defaults={'logfilename': LOG_MAIN_FILE_PATH, 'name': 'file'})
+        defaults={'logfilename': LOG_ONLINE_FILE_PATH, 'name': 'online'})
 
 # #########################################################
 

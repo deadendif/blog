@@ -14,7 +14,7 @@ from ..caches import EntryCounterCache, EntryActorIpCache
 from ..breadcrumbs import Link
 from ..settings import PTN_BLOG_ENTRY_FEEDBACK
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
 
 
 class EntryDetail(EntryDetailMixin, BaseDateDetailView, JSONResponseMixin):

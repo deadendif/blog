@@ -4,7 +4,8 @@
 import logging
 from django.core.urlresolvers import resolve
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
+
 
 class ViewNameMiddleware(object):
     """

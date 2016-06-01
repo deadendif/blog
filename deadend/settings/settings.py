@@ -5,9 +5,10 @@ from kombu import Exchange, Queue
 
 
 """ Log config """
-LOG_CONF_PATH = 'conf/logger.conf'
-LOG_MAIN_FILE_PATH = 'logs/main.log'
-LOG_CELERY_FILE_PATH = 'logs/celery.tasks.log'
+LOG_CONF_PATH         = 'conf/logger.conf'
+LOG_ONLINE_FILE_PATH  = 'logs/online.log'
+LOG_OFFLINE_FILE_PATH = 'logs/offline.log'
+LOG_CELERY_FILE_PATH  = 'logs/celery.tasks.log'
 
 
 """ Redis settings """

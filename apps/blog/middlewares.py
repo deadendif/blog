@@ -8,7 +8,7 @@ from .utils import extract
 from .caches import EntryCounterCache, EntryActorIpCache
 from .settings import PTN_BLOG_ENTRY_VIEWER
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
 
 # https://www.andreagrandi.it/2015/08/23/how-to-write-a-custom-django-middleware/
 

@@ -9,7 +9,7 @@ from ..models import Entry, EntryCounter
 from ..caches import EntryCounterCache, EntryActorIpCache
 from ..settings import PTN_BLOG_ENTRY_VIEWER, PTN_BLOG_ENTRY_FEEDBACK
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
 
 @receiver(post_save, sender=Entry)
 def create_entry_counter(sender, instance, created, **kwargs):

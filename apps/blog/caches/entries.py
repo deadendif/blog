@@ -11,7 +11,7 @@ from ..adapters import entry_adapter
 from .. import settings
 from ..settings import PTN_BLOG_ENTRY_VIEWER
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
 
 
 class EntryCounterCache(object):

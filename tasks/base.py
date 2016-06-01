@@ -4,7 +4,7 @@
 import logging
 from .app import app
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('tasks')
 
 
 class BaseTask(app.Task):

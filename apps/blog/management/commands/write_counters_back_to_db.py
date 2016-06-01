@@ -12,7 +12,7 @@ from blog.settings import PTN_BLOG_ENTRY_COUNTER_UF
 from blog.settings import PTN_BLOG_ENTRY_COUNTER_UL
 
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('offline')
 
 
 class Command(BaseCommand):

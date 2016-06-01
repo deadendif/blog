@@ -14,7 +14,8 @@ from .settings import PUBLISHED
 from .settings import MARKDOWN_EXTENSIONS
 from .breadcrumbs import Link
 
-logger = logging.getLogger('file')
+logger = logging.getLogger('online')
+
 
 def entries_published(queryset):
     """
