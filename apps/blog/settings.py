@@ -38,13 +38,13 @@ MIN_KEYWORD_LENGTH = 3
 SEARCH_FIELDS = ['title', 'content']
 
 """ Min time delta between two valid page view """
-BLOG_ENTRY_ACTOR_DELTA = 30
+BLOG_ENTRY_ACTOR_DELTA = 3600
 
 
 """ Redis config """
 REDIS_DB_BLOG = 1
 REDIS_EXPIRE_BLOG_ENTRY_COUNTER = 3600 * 24 * 14
-REDIS_EXPIRE_BLOG_ENTRY_VIEWER  = 3600 * 1
+# REDIS_EXPIRE_BLOG_ENTRY_VIEWER  = 3600 * 1
 
 """ Key patterns of cached entry counter """
 PTN_BLOG_ENTRY_COUNTER_PV = 'BL_ET_CT_PV_%d'

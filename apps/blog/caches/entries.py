@@ -88,7 +88,7 @@ class EntryActorIpCache(object):
 
     def __init__(self, entry_or_id, pattern):
         self.__r = redis.StrictRedis(connection_pool=BLOG_REDIS_CONN_POOL)
-        self.__expire = settings.REDIS_EXPIRE_BLOG_ENTRY_VIEWER
+        # self.__expire = settings.REDIS_EXPIRE_BLOG_ENTRY_VIEWER
         self.__entry = entry_adapter.adapt(entry_or_id)
         self.__key = pattern % self.__entry.id
 
