@@ -22,7 +22,7 @@ PAGINATION = 5
 ALLOW_EMPTY = True
 
 """ Markdown extensions """
-MARKDOWN_EXTENSIONS = ['markdown.extensions.tables', ]
+MARKDOWN_EXTENSIONS = ['markdown.extensions.extra', 'markdown.extensions.toc']
 
 """ Number of recent archives """
 RECENT_ARCHIVES_NUM = 4
