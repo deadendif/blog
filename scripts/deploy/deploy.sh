@@ -32,4 +32,5 @@ uwsgi --reload /tmp/uwsgi.deadend.pid
 # mysql
 mysqldump -u 用户名 -p -t deadend blog_entry > entry.sql
 
-
+# rm pyc
+find . -name "*.pyc" -exec rm {} \;

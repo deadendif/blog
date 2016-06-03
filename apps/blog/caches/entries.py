@@ -81,9 +81,9 @@ class EntryCounterCache(object):
         self.__r.delete(*(tuple([ptn % self.entry.id for ptn in self.__map.values()])))
 
 
-class EntryActorIpCache(object):
+class EntryActorCache(object):
     """
-    Cache ip of entry's actor.
+    Cache key of entry's actor.
     """
 
     def __init__(self, entry_or_id, pattern):
@@ -100,17 +100,17 @@ class EntryActorIpCache(object):
     def key(self):
         return self.__key
 
-    def add(self, ip):
+    def add(self, key):
         """
-        Add ip to zset, score is added time.
+        Add key to zset, score is added time.
         """
-        self.__r.zadd(self.key, int(time.time()), ip)
+        self.__r.zadd(self.key, int(time.time()), key)
 
-    def exists(self, ip):
+    def exists(self, key):
         """
-        Whether ip cannot contribute a page view.
+        Whether key cannot contribute a page view.
         """
-        last_time = self.__r.zscore(self.key, ip)
+        last_time = self.__r.zscore(self.key, key)
         if last_time is None or int(last_time) < int(time.time()) - settings.BLOG_ENTRY_ACTOR_DELTA:
             return False
         return True
@@ -123,7 +123,7 @@ class EntryActorIpCache(object):
 
     def delete(self):
         """
-        Delete actor's ips of the entry.
+        Delete actor's keys of the entry.
         """
         self.__r.delete(self.__key)
 

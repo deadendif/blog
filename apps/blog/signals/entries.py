@@ -6,7 +6,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_delete
 
 from ..models import Entry, EntryCounter
-from ..caches import EntryCounterCache, EntryActorIpCache
+from ..caches import EntryCounterCache, EntryActorCache
 from ..settings import PTN_BLOG_ENTRY_VIEWER, PTN_BLOG_ENTRY_FEEDBACK
 
 logger = logging.getLogger('online')
@@ -28,8 +28,8 @@ def delete_entry_counter(sender, instance, **kwargs):
     """
     try:
         EntryCounterCache(instance).delete()
-        EntryActorIpCache(instance, PTN_BLOG_ENTRY_VIEWER).delete()
-        EntryActorIpCache(instance, PTN_BLOG_ENTRY_FEEDBACK).delete()
+        EntryActorCache(instance, PTN_BLOG_ENTRY_VIEWER).delete()
+        EntryActorCache(instance, PTN_BLOG_ENTRY_FEEDBACK).delete()
         EntryCounter.objects.get(entry=instance).delete()
     except Exception, e:
         logger.error('%s' % str(e))
