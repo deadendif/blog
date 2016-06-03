@@ -86,16 +86,28 @@ h4 {
     background-color: transparent;
 }
 
-.markdown-body ul ul {
+.markdown-body ul {
     padding-left: 16px;
 }
 
-.markdown-body ul ul ul{
-    padding-left: 16px;
+.markdown-body ul li {
+    line-height: 1.6em;
 }
+
+/* .markdown-body ul ul { */
+/*     padding-left: 16px; */
+/* } */
+
+/* .markdown-body ul ul ul{ */
+/*     padding-left: 16px; */
+/* } */
 
 .markdown-body img {
     max-width: 100%;
     height: auto;
 }
 
+.markdown-body  hr {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
