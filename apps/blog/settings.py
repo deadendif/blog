@@ -16,7 +16,7 @@ UPLOAD_IMAGE_TO = 'images/'
 SPLITTERS = ['<!-- more -->', ]
 
 """ Archive pagination """
-PAGINATION = 5
+PAGINATION = 10
 
 """ Archive allow empty or not """
 ALLOW_EMPTY = True
