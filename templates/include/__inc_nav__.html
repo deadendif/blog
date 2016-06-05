@@ -2,7 +2,7 @@
 
 {% load location %}
 
-<div class="ui secondary pointing blue menu {# fixed top #}" style="font-size:18px;">
+<div class="ui secondary pointing blue menu {# fixed top #}" style="font-size:18px;margin-top:0px">
   <div class="ui container">
     <a href="{% url 'blog:archives:index' %}" class="item" style="font-weight:bold;color:green">deadend</a>
     {% if request.path|location:'blog' %}

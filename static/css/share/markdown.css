@@ -111,3 +111,7 @@ h4 {
     margin-top: 80px;
     margin-bottom: 20px;
 }
+
+.markdown-body table, .markdown-body th, .markdown-body td {
+    text-align: center !important;
+}
