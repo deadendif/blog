@@ -86,11 +86,11 @@ h4 {
     background-color: transparent;
 }
 
-.markdown-body ul {
+.markdown-body ul, ol {
     padding-left: 21px;
 }
 
-.markdown-body ul li {
+.markdown-body li {
     line-height: 1.6em;
 }
 
