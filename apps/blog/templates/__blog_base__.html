@@ -13,6 +13,8 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/share/markdown.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/share/styles/solarized-light.css' %}">
 {% block subcss %}{% endblock %}
 {% endblock %}
 
@@ -92,5 +94,18 @@
 
 {% block js %}
 <script src="{% static 'js/blog/base.js' %}"></script>
+<script src="{% static 'js/share/highlight.pack.js' %}"></script>
+<script src="{% static 'js/share/markdown.js' %}"></script>
+<script type="text/javascript" async
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "tex2jax": { inlineMath: [ ['$','$']] },
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { linebreaks: { automatic: true } },
+    SVG: { linebreaks: { automatic: true } }
+  });
+</script>
 {% block subjs %}{% endblock %}
 {% endblock %}

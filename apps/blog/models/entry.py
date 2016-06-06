@@ -12,10 +12,11 @@ from tagging.utils import parse_tag_input
 from author import Author
 from category import Category
 from blog.settings import DRAFT, HIDDEN, PUBLISHED
-from blog.settings import ENTRY_DETAIL_TEMPLATES, SPLITTERS
+from blog.settings import ENTRY_DETAIL_TEMPLATES, PREVIEW_SPLITTERS, PREVIEW_MORE_STRING
 from blog.utils import entries_published
 from blog.utils import markdown
 from blog.managers import EntryPublishedManager
+from blog.preview import HTMLPreview
 
 
 class Entry(models.Model):
@@ -169,7 +170,8 @@ class Entry(models.Model):
         """
         Return html preview object
         """
-        return HtmlPreview(self.html_content, SPLITTERS)
+        return HTMLPreview(self.html_content)
+        # return HTMLPreview(self.html_content, self.excerpt)
 
     @property
     def word_count(self):
@@ -183,8 +185,8 @@ class Entry(models.Model):
         [Override] update fields: last_update, excerpt
         """
         self.last_update = timezone.now()
-        if not self.excerpt and self.status == PUBLISHED:
-            self.excerpt = Truncator(strip_tags(getattr(self, 'content', ''))).words(50)
+        # if not self.excerpt and self.status == PUBLISHED:
+        #     self.excerpt = HTMLPreview(self.html_content)
         super(self.__class__, self).save(*args, **kwargs)
 
     def __str__(self):

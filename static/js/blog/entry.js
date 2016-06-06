@@ -86,9 +86,6 @@ var feedback = function(btn, type) {
 
 /* 加载完成时执行 */
 $(function(){
-    /* 代码高亮 */
-    hljs.initHighlightingOnLoad();
-
     /* 恢复全屏状态 */
     restoreFullscreen();
 

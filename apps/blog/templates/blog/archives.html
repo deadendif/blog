@@ -14,12 +14,12 @@
 
 {% block main %}
 {% for entry in entry_list %}
-<article>
+<article class="markdown-body">
   <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
   <p class="article-meta">
     <span>发表于 {{ entry.publish_date |date:"Y-m-d H:i" }} </span>
   </p>
-  <p>{{ entry.excerpt }}</p>
+  <p>{{ entry.html_preview|safe }}</p>
   <p><a href="{{ entry.get_absolute_url }}">继续阅读 <i class="angle double right icon"></i></a></p>
   <p class="article-meta">
     <span><i class="unhide icon"></i> {{ entry|entry_counter:"page_view_num" }} </span>

@@ -12,8 +12,10 @@ ENTRY_DETAIL_TEMPLATES = [('default', 'default'), ]
 """ Upload path """
 UPLOAD_IMAGE_TO = 'images/'
 
-""" Splitters of entries """
-SPLITTERS = ['<!-- more -->', ]
+""" Entry preview """
+PREVIEW_SPLITTERS = ['<!-- more -->', ]
+PREVIEW_MAX_WORDS = 30
+PREVIEW_MORE_STRING = ' ...'
 
 """ Archive pagination """
 PAGINATION = 10
