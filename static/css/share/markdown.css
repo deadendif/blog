@@ -88,19 +88,12 @@ h4 {
 
 .markdown-body ul, ol {
     padding-left: 21px;
+    margin: 8px 0px;
 }
 
 .markdown-body li {
     line-height: 1.6em;
 }
-
-/* .markdown-body ul ul { */
-/*     padding-left: 16px; */
-/* } */
-
-/* .markdown-body ul ul ul{ */
-/*     padding-left: 16px; */
-/* } */
 
 .markdown-body img {
     max-width: 100%;
@@ -114,4 +107,8 @@ h4 {
 
 .markdown-body table, .markdown-body th, .markdown-body td {
     text-align: center !important;
+}
+
+.markdown-body p {
+    margin-bottom: 10px;
 }
