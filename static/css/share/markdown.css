@@ -98,6 +98,9 @@ h4 {
 .markdown-body img {
     max-width: 100%;
     height: auto;
+    clear: both;
+    display:block;
+    margin: auto;
 }
 
 .markdown-body  hr {
