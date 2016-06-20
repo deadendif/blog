@@ -101,6 +101,8 @@ h4 {
     clear: both;
     display:block;
     margin: auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .markdown-body  hr {

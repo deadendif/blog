@@ -31,8 +31,9 @@ def size(count):
     """
     Return size according to 'count'.
     """
-    BASE = 1
-    SIZES = ['mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive']
+    BASE = 20
+    # SIZES = ['mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive']
+    SIZES = ['tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive']
     index = count / BASE if (count / BASE <= len(SIZES) - 1) else (len(SIZES) - 1)
     return SIZES[index]
 
