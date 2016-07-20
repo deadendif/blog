@@ -32,7 +32,7 @@ h4 {
 .markdown-body blockquote {
     margin-top: 0;
     /*margin-bottom: 16px;*/
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .markdown-body blockquote {
@@ -46,7 +46,7 @@ h4 {
 }
 
 .markdown-body blockquote>:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0px;
 }
 
 .markdown-body blockquote {
