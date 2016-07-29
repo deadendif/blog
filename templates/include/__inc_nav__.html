@@ -6,9 +6,10 @@
   <div class="ui container">
     <a href="{% url 'blog:archives:index' %}" class="item" style="font-weight:bold;color:green">deadend</a>
     {% if request.path|location:'blog' %}
-    <a href="{% url 'blog:archives:index' %}" class="item active">博客 </a>
+    <a href="{% url 'blog:archives:index' %}" class="item {% if 'cross-the-gfw' not in request.path %}active{% endif %}">博客 </a>
     <a class="item">爬虫 </a>
-    <a class="item">翻墙 </a>
+    <!-- TODO: 数据库加表,去掉硬编码 -->
+    <a href="/2016/07/29/cross-the-gfw/" class="item {% if 'cross-the-gfw' in request.path %}active{% endif %}">科学上网 </a>
 
     <div class="right menu">
       <div class="item" style="margin-bottom:4px;">

@@ -8,11 +8,13 @@ register = template.Library()
 
 
 @register.filter
-def location(path, view_name):
+def location(path, view_names):
     """
     Weather the path agrees with name.
     """
     match  = resolve(path)
-    if match.view_name[:len(view_name)] == view_name:
-        return True
+    view_name_list = [vn.strip() for vn in view_names.split('|')]
+    for view_name in view_name_list:
+        if match.view_name[:len(view_name)] == view_name:
+            return True
     return False
