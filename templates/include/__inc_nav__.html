@@ -4,7 +4,7 @@
 
 <div class="ui secondary pointing blue menu {# fixed top #}" style="font-size:18px;margin-top:0px">
   <div class="ui container">
-    <a href="{% url 'blog:archives:index' %}" class="item" style="font-weight:bold;color:green">deadend</a>
+    <a href="{% url 'blog:archives:index' %}" class="item" style="font-weight:bold;color:green">SelfCoder</a>
     {% if request.path|location:'blog' %}
     <a href="{% url 'blog:archives:index' %}" class="item {% if 'cross-the-gfw' not in request.path %}active{% endif %}">博客 </a>
     <a class="item">爬虫 </a>

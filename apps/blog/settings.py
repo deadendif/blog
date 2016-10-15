@@ -34,7 +34,7 @@ HASH_TAG_COLOR_START = 3
 HASH_TAG_COLOR_END = 9
 
 """ Min length of keyword for searching """
-MIN_KEYWORD_LENGTH = 3
+MIN_KEYWORD_LENGTH = 2
 
 """ Entry search fields """
 SEARCH_FIELDS = ['title', 'content']

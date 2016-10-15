@@ -37,5 +37,4 @@ class EntrySearchMixin(ArchiveConfMixin, BaseListView, TemplateResponseMixin):
         context = super(EntrySearchMixin, self).get_context_data(**kwargs)
         context.update({'error': self.error, 'pattern': self.pattern})
         context.update(getattr(self, 'private_context_data', {}))
-        print context
         return context
