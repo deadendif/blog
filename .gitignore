@@ -59,3 +59,4 @@ target/
 # Custom
 nouse/
 logs/
+nohup.out
