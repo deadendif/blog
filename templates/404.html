@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
-    {% load rand %}
     <title>404 Not Found-deadend</title>
 
     <!-- 图标 -->
@@ -13,7 +12,7 @@
 
     <style>
         body {
-            background-image:url("{% static '' %}{% randBackground %}");
+            background-image:url("{% static 'img/share/background/white_brick_wall.png' %}");
             font-weight: bold;
         }
     </style>

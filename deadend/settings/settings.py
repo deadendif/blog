@@ -51,4 +51,4 @@ EMAIL_DEFAULT_RETRY_DELAY = 60 * 3
 EMAIL_SOFT_TIME_LIMIT = 10
 
 """ Random background images """
-RANDOM_BACKGROUND_IMAGES = 'img/share/background/*.png'
+RANDOM_BACKGROUND_IMAGES = 'img/share/background/random*.png'
