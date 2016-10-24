@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import time
 import glob
 import random
 import logging
@@ -20,7 +21,8 @@ def randBackground():
         logger.info(pattern)
         images = [os.path.join(os.path.dirname(settings.RANDOM_BACKGROUND_IMAGES), os.path.basename(i)) 
                 for i in glob.glob(pattern)]
-        return random.choice(images)
+        return images[int(time.strftime('%d')) % len(images)]
+        # return random.choice(images)
     except Exception, e:
         logger.error(str(e))
         return ''

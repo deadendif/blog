@@ -61,7 +61,7 @@ TIME_ZONE = 'Asia/Shanghai'
 EMAIL_HOST          = 'smtp.163.com'
 EMAIL_PORT          = 25
 EMAIL_HOST_USER     = '18810543730@163.com'
-EMAIL_HOST_PASSWORD = '1qaz@WSX'
+EMAIL_HOST_PASSWORD = base64.b64decode('Z29vZGJ5ZWE=')
 
 
 ######################## MANAGERS #########################
