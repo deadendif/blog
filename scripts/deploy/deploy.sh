@@ -23,7 +23,7 @@ pip install PIL
 # celery 启动
 # http://docs.celeryproject.org/en/latest/genindex.html
 celery worker -A tasks -Q default -l INFO -f logs/celery.server.log -c 4 --time-limit=10 
-
+nohup celery worker -A tasks -l INFO -f logs/celery.server.log -c 2  -P gevent &
 
 # uwsgi
 uwsgi --ini scripts/deploy/uwsgi.ini

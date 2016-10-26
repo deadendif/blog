@@ -18,7 +18,6 @@ logger = logging.getLogger('online')
 def randBackground():
     try:
         pattern = os.path.join(settings.STATIC_ROOT, settings.RANDOM_BACKGROUND_IMAGES)
-        logger.info(pattern)
         images = [os.path.join(os.path.dirname(settings.RANDOM_BACKGROUND_IMAGES), os.path.basename(i)) 
                 for i in glob.glob(pattern)]
         return images[int(time.strftime('%d')) % len(images)]
