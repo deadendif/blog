@@ -17,12 +17,12 @@ var toggleFullscreen = function(setCookie) {
         $('#body-right').hide();
         $('#body-left').removeClass('eleven wide column').addClass('sixteen wide column');
         if (setCookie)
-            Cookies.set('isFullscreen', 'true');
+            Cookies.set('isFullscreen', 'true', { path: '/' });
     } else {
         $('#body-right').show();
         $('#body-left').removeClass('sixteen wide column').addClass('eleven wide column');
         if (setCookie)
-            Cookies.set('isFullscreen', 'false');
+            Cookies.set('isFullscreen', 'false', { path: '/' });
     }
 };
 
