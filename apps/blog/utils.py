@@ -33,7 +33,7 @@ def entries_of_month(queryset, year, month):
     Return entries published in the month.
     """
     start = datetime.datetime(year, month, 1)
-    end = datetime.datetime(year + month / 12, (month + 1) % 12, 1)
+    end = datetime.datetime(year + month / 12, month % 12 + 1, 1)
     return entries_published(queryset).filter(
         create_time__gte=start, create_time__lt=end)
 

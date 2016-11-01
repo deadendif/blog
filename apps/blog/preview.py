@@ -76,6 +76,5 @@ class HTMLPreview(object):
         soup = BeautifulSoup(self.content.split(splitter)[0],
                              'html.parser')
         last_string = soup.find_all(text=True)[-1]
-        logger.info(last_string)
         last_string.replace_with(last_string.string + self.more_string)
         return soup
