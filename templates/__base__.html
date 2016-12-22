@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block ttl %}{% endblock %}-deadend</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="public" />
+    <meta name="robots" content="follow, all" />
+    <meta name="language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block meta %}{% endblock %}
     {% load staticfiles %}
     {% load rand %}
     {% block loads %}{% endblock %}
-    <title>{% block ttl %}{% endblock %}-deadend</title>
-
+    
     <!-- 图标 -->
     <link rel="icon" href="{% static 'img/share/favicon.ico' %}" type="image/x-icon" />
     <link rel="shortcut icon" href="{% static 'img/share/favicon.ico' %}" type="image/x-icon" />

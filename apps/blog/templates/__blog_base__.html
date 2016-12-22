@@ -10,6 +10,12 @@
 
 {% block ttl %}{% endblock %}
 
+{% block meta %}
+<meta name="keywords" content="{% for label in labels %}{{ label.name }} {% endfor %}" />
+<meta name="description" content="{% with breadcrumbs|last as last %}{{ last.name }}{% endwith %}" />
+{% block submeta %}{% endblock %}
+{% endblock %}
+
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/blog/base.css' %}">
