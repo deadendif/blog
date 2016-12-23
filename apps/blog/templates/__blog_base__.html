@@ -11,7 +11,7 @@
 {% block ttl %}{% endblock %}
 
 {% block meta %}
-<meta name="keywords" content="{% for label in labels %}{{ label.name }} {% endfor %}" />
+<meta name="keywords" content="{% for label in labels %}{{ label.name }}{% if not forloop.last %} {% endif %}{% endfor %}" />
 <meta name="description" content="{% with breadcrumbs|last as last %}{{ last.name }}{% endwith %}" />
 {% block submeta %}{% endblock %}
 {% endblock %}
