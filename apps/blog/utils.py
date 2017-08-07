@@ -68,7 +68,7 @@ def markdown(text, extensions=MARKDOWN_EXTENSIONS):
     """
     Return html content.
     """
-    return md.markdown(text, extensions=extensions)
+    return md.markdown(text, safe_mode='escape', extensions=extensions)
 
 
 def recent_year_month(month_delta=0):
