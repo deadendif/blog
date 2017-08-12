@@ -22,6 +22,7 @@ Blog system based on Django framework.
 + Nginx
 
 ## TODO
++ Add keywords for post
 + Remove hardcode in navigation bar
 
 ## Related Project
